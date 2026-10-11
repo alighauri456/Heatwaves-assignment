@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CSIRO 2020–2025: equal-cell annual state means, then equal-year mean. Maximum is over all cell-years. ABS ASGS 2021 boundaries (CC BY 4.0), full-resolution centre-point join; simplified display only. Partial years are not annualised; runs can be truncated at yearly file boundaries. Unmatched coastal cells are excluded. See data/csiro_state_duration_metadata.json.",
+  "title": {
+    "text": "Where do heatwaves last the longest?",
+    "subtitle": "Average annual longest heatwave duration, 2020–2025",
+    "anchor": "start",
+    "offset": 16
+  },
+  "width": "container",
+  "height": 500,
+  "autosize": { "type": "fit", "contains": "padding", "resize": true },
+  "data": {
+    "url": "data/csiro_state_duration_2020_2025.geojson",
+    "format": { "type": "json", "property": "features" }
+  },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [-134, 0, 0],
+    "center": [0, -27],
+    "parallels": [-18, -36]
+  },
+  "mark": { "type": "geoshape", "stroke": "#ffffff", "strokeWidth": 1.2 },
+  "encoding": {
+    "color": {
+      "condition": {
+        "test": "datum.properties.mean_longest_run == null",
+        "value": "#e5e7eb"
+      },
+      "field": "properties.mean_longest_run",
+      "type": "quantitative",
+      "scale": { "scheme": "purples", "zero": true },
+      "legend": {
+        "title": "Average annual longest run (days)",
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 260,
+        "format": ".1f",
+        "titleLimit": 320
+      }
+    },
+    "tooltip": [
+      { "field": "properties.state", "type": "nominal", "title": "State / territory" },
+      { "field": "properties.mean_longest_run", "type": "quantitative", "title": "Average longest duration (days)", "format": ".2f" },
+      { "field": "properties.max_longest_run", "type": "quantitative", "title": "Maximum longest duration (days)", "format": ".0f" },
+      { "field": "properties.mean_heatwave_days", "type": "quantitative", "title": "Average heatwave days per year", "format": ".2f" },
+      { "field": "properties.grid_cells", "type": "quantitative", "title": "Represented grid cells", "format": ",.0f" }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "fontSize": 18, "fontWeight": 600, "color": "#263238", "subtitleFontSize": 12, "subtitleColor": "#4B5563", "subtitlePadding": 8 },
+    "legend": { "labelFontSize": 12, "titleFontSize": 12, "titleFontWeight": "normal" }
+  }
+}

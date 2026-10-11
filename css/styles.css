@@ -46,3 +46,9 @@ h2 {
   width: 100%;
   min-height: 500px;
 }
+
+#heatwave-duration-map {
+  display: block;
+  width: 100%;
+  min-height: 500px;
+}

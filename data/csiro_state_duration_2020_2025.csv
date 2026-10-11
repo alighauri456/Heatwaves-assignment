@@ -1,0 +1,10 @@
+state_code,state,mean_longest_run,max_longest_run,mean_heatwave_days,grid_cells,years
+1,New South Wales,5.301871,31,13.111365,6341,6
+2,Victoria,3.795836,13,9.295041,1889,6
+3,Queensland,7.967914,56,20.188594,12534,6
+4,South Australia,4.116899,15,11.128431,7602,6
+5,Western Australia,7.294,46,17.531419,18805,6
+6,Tasmania,4.539031,12,12.974929,585,6
+7,Northern Territory,7.910763,31,19.22076,9613,6
+8,Australian Capital Territory,4.382353,12,9.343137,17,6
+9,Other Territories,,,,0,6

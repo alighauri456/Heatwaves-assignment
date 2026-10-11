@@ -19,6 +19,13 @@
       <p>The map shows average annual heatwave days during the 2020s, using data from 2020–2025.</p>
       <div id="heatwave-frequency-map" aria-label="Map of average annual heatwave days across Australia"></div>
     </section>
+    <section aria-labelledby="duration-map-heading">
+      <h2 id="duration-map-heading">Heatwave duration by state and territory</h2>
+      <div id="heatwave-duration-map" aria-label="Choropleth of average annual longest heatwave duration by Australian state and territory"></div>
+      <p>Each state shows the average of its grid cells’ annual longest positive-EHF runs over 2020–2025. Cells and years receive equal weight. Hover for the maximum run and average heatwave days.</p>
+      <p>Results use available dates without annualisation; 2025 may be incomplete. Runs touching yearly file boundaries may be truncated. Grey areas have no represented grid cells.</p>
+      <p>Sources: CSIRO EHF; <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/data-services-and-apis">ABS ASGS 2021 state and territory boundaries</a> (CC BY 4.0). <a href="data/csiro_state_duration_metadata.json">Aggregation details</a>.</p>
+    </section>
     <noscript>Enable JavaScript to view the chart.</noscript>
   </main>
   <script>
@@ -50,6 +57,14 @@
       }
     }
     renderMap();
+    vegaEmbed('#heatwave-duration-map', 'charts/heatwave_duration_choropleth.json', {
+      actions: false,
+      renderer: 'svg',
+      loader: { baseURL: new URL('./', window.location.href).href }
+    }).catch(error => {
+      document.getElementById('heatwave-duration-map').textContent = 'The duration map could not be loaded.';
+      console.error(error);
+    });
   </script>
 </body>
 </html>

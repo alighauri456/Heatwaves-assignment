@@ -1,0 +1,107 @@
+{
+  "boundary_source": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/MapServer/0",
+  "boundary_license": "ABS CC BY 4.0",
+  "years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "grid_cells": 57507,
+  "joined_cells": 57386,
+  "unmatched_cells": 121,
+  "border_ties": 0,
+  "states": [
+    {
+      "state_code": "1",
+      "state": "New South Wales",
+      "mean_longest_run": 5.301871,
+      "max_longest_run": 31,
+      "mean_heatwave_days": 13.111365,
+      "grid_cells": 6341,
+      "years": 6
+    },
+    {
+      "state_code": "2",
+      "state": "Victoria",
+      "mean_longest_run": 3.795836,
+      "max_longest_run": 13,
+      "mean_heatwave_days": 9.295041,
+      "grid_cells": 1889,
+      "years": 6
+    },
+    {
+      "state_code": "3",
+      "state": "Queensland",
+      "mean_longest_run": 7.967914,
+      "max_longest_run": 56,
+      "mean_heatwave_days": 20.188594,
+      "grid_cells": 12534,
+      "years": 6
+    },
+    {
+      "state_code": "4",
+      "state": "South Australia",
+      "mean_longest_run": 4.116899,
+      "max_longest_run": 15,
+      "mean_heatwave_days": 11.128431,
+      "grid_cells": 7602,
+      "years": 6
+    },
+    {
+      "state_code": "5",
+      "state": "Western Australia",
+      "mean_longest_run": 7.294,
+      "max_longest_run": 46,
+      "mean_heatwave_days": 17.531419,
+      "grid_cells": 18805,
+      "years": 6
+    },
+    {
+      "state_code": "6",
+      "state": "Tasmania",
+      "mean_longest_run": 4.539031,
+      "max_longest_run": 12,
+      "mean_heatwave_days": 12.974929,
+      "grid_cells": 585,
+      "years": 6
+    },
+    {
+      "state_code": "7",
+      "state": "Northern Territory",
+      "mean_longest_run": 7.910763,
+      "max_longest_run": 31,
+      "mean_heatwave_days": 19.22076,
+      "grid_cells": 9613,
+      "years": 6
+    },
+    {
+      "state_code": "8",
+      "state": "Australian Capital Territory",
+      "mean_longest_run": 4.382353,
+      "max_longest_run": 12,
+      "mean_heatwave_days": 9.343137,
+      "grid_cells": 17,
+      "years": 6
+    },
+    {
+      "state_code": "9",
+      "state": "Other Territories",
+      "mean_longest_run": null,
+      "max_longest_run": null,
+      "mean_heatwave_days": null,
+      "grid_cells": 0,
+      "years": 6
+    }
+  ],
+  "aggregation": "Equal-cell annual state means, then equal-year mean; max over cells and years.",
+  "caveats": [
+    "2025 may be partial; no annualisation.",
+    "Runs may be truncated at annual file boundaries.",
+    "Unmatched Natural Earth land-mask cells excluded from ABS join.",
+    "Display simplified by 0.01 degree, rounded to 4 decimals; islets below 0.001 square degree omitted from display only. Full geometry used for join.",
+    "Other Territories may have no represented grid centres."
+  ]
+}
