@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual national mean heatwave days in Australia from 1980 onwards. Heatwave days measure time spent in heatwave conditions, not the number of separate events.",
+  "title": {
+    "text": "Heatwave days in Australia",
+    "subtitle": [
+      "Average number of heatwave days each year, 1980–2025",
+      "National annual data · Source: CSIRO"
+    ],
+    "anchor": "start",
+    "offset": 18
+  },
+  "data": {
+    "url": "data/csiro_national_annual.csv",
+    "format": {
+      "type": "csv",
+      "parse": { "year": "number", "mean_heatwave_days": "number" }
+    }
+  },
+  "transform": [{ "filter": "datum.year >= 1980" }],
+  "width": "container",
+  "height": 320,
+  "autosize": { "type": "fit", "contains": "padding", "resize": true },
+  "mark": {
+    "type": "line",
+    "color": "#B65335",
+    "strokeWidth": 2.5,
+    "point": { "filled": true, "size": 28 },
+    "clip": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "scale": { "zero": false, "nice": false },
+      "axis": {
+        "format": "d",
+        "tickMinStep": 1,
+        "tickCount": 6,
+        "labelAngle": 0,
+        "labelOverlap": true,
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "mean_heatwave_days",
+      "type": "quantitative",
+      "title": "Average heatwave days per year",
+      "scale": { "zero": true },
+      "axis": { "format": ".0f", "tickCount": 6, "tickMinStep": 1 }
+    },
+    "order": { "field": "year", "type": "quantitative" },
+    "tooltip": [
+      { "field": "year", "type": "quantitative", "title": "Year", "format": "d" },
+      {
+        "field": "mean_heatwave_days",
+        "type": "quantitative",
+        "title": "National average heatwave days",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial, sans-serif",
+    "view": { "stroke": null },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#4B5563",
+      "titleColor": "#374151",
+      "labelPadding": 7,
+      "titlePadding": 12,
+      "domain": false,
+      "tickColor": "#D1D5DB",
+      "gridColor": "#E5E7EB",
+      "gridOpacity": 0.7
+    },
+    "title": {
+      "fontSize": 20,
+      "fontWeight": 600,
+      "color": "#263238",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#4B5563",
+      "subtitlePadding": 8,
+      "subtitleLineHeight": 18
+    }
+  }
+}

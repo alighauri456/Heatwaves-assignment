@@ -1,0 +1,114 @@
+{
+  "method": "Headless Microsoft Edge, canvas renderer, 900px container, DPR 1, local HTTP, browser cache disabled; one warm-up and five alternating measured runs per dataset. Elapsed includes CSV fetch, parsing, transforms, rendering and two animation frames; excludes CDN and specification fetch.",
+  "browser": "153.0.4234.48",
+  "runs": [
+    {
+      "kind": "original",
+      "trial": 0,
+      "warmup": true,
+      "elapsed_ms": 1700,
+      "csv_fetch_ms": 50.300000071525574,
+      "decoded_bytes": 20517146,
+      "canvas_width": 900
+    },
+    {
+      "kind": "reduced",
+      "trial": 0,
+      "warmup": true,
+      "elapsed_ms": 500.2999999523163,
+      "csv_fetch_ms": 19.600000023841858,
+      "decoded_bytes": 5126207,
+      "canvas_width": 900
+    },
+    {
+      "kind": "reduced",
+      "trial": 1,
+      "warmup": false,
+      "elapsed_ms": 481.5,
+      "csv_fetch_ms": 16,
+      "decoded_bytes": 5126207,
+      "canvas_width": 900
+    },
+    {
+      "kind": "original",
+      "trial": 1,
+      "warmup": false,
+      "elapsed_ms": 1634.1000000238419,
+      "csv_fetch_ms": 51.299999952316284,
+      "decoded_bytes": 20517146,
+      "canvas_width": 900
+    },
+    {
+      "kind": "original",
+      "trial": 2,
+      "warmup": false,
+      "elapsed_ms": 1784,
+      "csv_fetch_ms": 61.800000071525574,
+      "decoded_bytes": 20517146,
+      "canvas_width": 900
+    },
+    {
+      "kind": "reduced",
+      "trial": 2,
+      "warmup": false,
+      "elapsed_ms": 446.2999999523163,
+      "csv_fetch_ms": 14.100000023841858,
+      "decoded_bytes": 5126207,
+      "canvas_width": 900
+    },
+    {
+      "kind": "reduced",
+      "trial": 3,
+      "warmup": false,
+      "elapsed_ms": 439.90000009536743,
+      "csv_fetch_ms": 13.600000023841858,
+      "decoded_bytes": 5126207,
+      "canvas_width": 900
+    },
+    {
+      "kind": "original",
+      "trial": 3,
+      "warmup": false,
+      "elapsed_ms": 1677.7999999523163,
+      "csv_fetch_ms": 46,
+      "decoded_bytes": 20517146,
+      "canvas_width": 900
+    },
+    {
+      "kind": "original",
+      "trial": 4,
+      "warmup": false,
+      "elapsed_ms": 1842,
+      "csv_fetch_ms": 49,
+      "decoded_bytes": 20517146,
+      "canvas_width": 900
+    },
+    {
+      "kind": "reduced",
+      "trial": 4,
+      "warmup": false,
+      "elapsed_ms": 524.2000000476837,
+      "csv_fetch_ms": 13.600000023841858,
+      "decoded_bytes": 5126207,
+      "canvas_width": 900
+    },
+    {
+      "kind": "reduced",
+      "trial": 5,
+      "warmup": false,
+      "elapsed_ms": 500.40000009536743,
+      "csv_fetch_ms": 15.800000071525574,
+      "decoded_bytes": 5126207,
+      "canvas_width": 900
+    },
+    {
+      "kind": "original",
+      "trial": 5,
+      "warmup": false,
+      "elapsed_ms": 1681.6000000238419,
+      "csv_fetch_ms": 46.5,
+      "decoded_bytes": 20517146,
+      "canvas_width": 900
+    }
+  ]
+}

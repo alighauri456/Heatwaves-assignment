@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CSIRO land-only grid: average annual heatwave days for the 2020s (2020–2025). Each supplied grid centre is drawn as a 0.11-degree geographic cell, using half-widths of 0.055 degrees. No missing cells are filled and no values are interpolated.",
+  "title": {
+    "text": "Heatwave frequency across Australia",
+    "subtitle": [
+      "Average heatwave days per year across Australia",
+      "2020s: 2020–2025 only · Source: CSIRO"
+    ],
+    "anchor": "start",
+    "offset": 16
+  },
+  "data": {
+    "url": "data/csiro_decade_grid.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "latitude": "number",
+        "longitude": "number",
+        "decade": "string",
+        "mean_heatwave_days": "number"
+      }
+    }
+  },
+  "transform": [
+    { "filter": { "field": "decade", "equal": "2020s" } },
+    {
+      "calculate": "{'type': 'Feature', 'geometry': {'type': 'Polygon', 'coordinates': [[[datum.longitude - 0.055, datum.latitude - 0.055], [datum.longitude - 0.055, datum.latitude + 0.055], [datum.longitude + 0.055, datum.latitude + 0.055], [datum.longitude + 0.055, datum.latitude - 0.055], [datum.longitude - 0.055, datum.latitude - 0.055]]]}}",
+      "as": "grid_cell"
+    }
+  ],
+  "width": "container",
+  "height": 500,
+  "autosize": { "type": "fit", "contains": "padding", "resize": true },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [-134, 0, 0],
+    "center": [0, -27],
+    "parallels": [-18, -36]
+  },
+  "mark": { "type": "geoshape", "stroke": null },
+  "encoding": {
+    "shape": { "field": "grid_cell", "type": "geojson" },
+    "color": {
+      "field": "mean_heatwave_days",
+      "type": "quantitative",
+      "scale": { "scheme": "yelloworangered", "zero": true },
+      "legend": {
+        "title": "Average heatwave days per year",
+        "titleLimit": 300,
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 220,
+        "gradientThickness": 12,
+        "format": ".0f",
+        "tickCount": 5
+      }
+    },
+    "tooltip": [
+      { "field": "latitude", "type": "quantitative", "title": "Latitude (°)", "format": ".2f" },
+      { "field": "longitude", "type": "quantitative", "title": "Longitude (°)", "format": ".2f" },
+      { "field": "decade", "type": "nominal", "title": "Decade" },
+      { "field": "mean_heatwave_days", "type": "quantitative", "title": "Average heatwave days per year", "format": ".1f" }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": {
+      "fontSize": 18,
+      "fontWeight": 600,
+      "color": "#263238",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#4B5563",
+      "subtitlePadding": 8,
+      "subtitleLineHeight": 18
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#4B5563",
+      "titleColor": "#374151",
+      "padding": 8
+    }
+  }
+}
+

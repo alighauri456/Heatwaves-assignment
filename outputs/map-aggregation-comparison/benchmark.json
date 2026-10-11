@@ -1,0 +1,355 @@
+{
+  "browser": "153.0.4234.48",
+  "method": "Local HTTP, cache disabled, Canvas at 900px/DPR 1; one warm-up and five measured alternating trials. Load-to-paint includes CSV fetch/parse, transforms, rendering and two animation frames; excludes CDN/spec fetch. Hover: 20 synthetic pointermove events over mainland positions; dispatch_ms measures synchronous hit testing and tooltip update; to_frame_ms includes two animation frames and intervening redraw work. Approximate browser responsiveness, not physical input/display latency.",
+  "runs": [
+    {
+      "kind": "original",
+      "trial": 0,
+      "warmup": true,
+      "elapsed_ms": 1663.5,
+      "csv_fetch_ms": 42,
+      "decoded_bytes": 20517146
+    },
+    {
+      "kind": "aggregated",
+      "trial": 0,
+      "warmup": true,
+      "elapsed_ms": 503.39999997615814,
+      "csv_fetch_ms": 4.700000047683716,
+      "decoded_bytes": 1258982
+    },
+    {
+      "kind": "aggregated",
+      "trial": 1,
+      "warmup": false,
+      "elapsed_ms": 458.60000002384186,
+      "csv_fetch_ms": 4.300000071525574,
+      "decoded_bytes": 1258982
+    },
+    {
+      "kind": "original",
+      "trial": 1,
+      "warmup": false,
+      "elapsed_ms": 2325.9000000953674,
+      "csv_fetch_ms": 51.800000071525574,
+      "decoded_bytes": 20517146
+    },
+    {
+      "kind": "original",
+      "trial": 2,
+      "warmup": false,
+      "elapsed_ms": 4737.099999904633,
+      "csv_fetch_ms": 97.70000004768372,
+      "decoded_bytes": 20517146
+    },
+    {
+      "kind": "aggregated",
+      "trial": 2,
+      "warmup": false,
+      "elapsed_ms": 1413.9000000953674,
+      "csv_fetch_ms": 5.5,
+      "decoded_bytes": 1258982
+    },
+    {
+      "kind": "aggregated",
+      "trial": 3,
+      "warmup": false,
+      "elapsed_ms": 1299.5,
+      "csv_fetch_ms": 7,
+      "decoded_bytes": 1258982
+    },
+    {
+      "kind": "original",
+      "trial": 3,
+      "warmup": false,
+      "elapsed_ms": 4763.699999928474,
+      "csv_fetch_ms": 73.89999997615814,
+      "decoded_bytes": 20517146
+    },
+    {
+      "kind": "original",
+      "trial": 4,
+      "warmup": false,
+      "elapsed_ms": 4761.800000071526,
+      "csv_fetch_ms": 99.79999995231628,
+      "decoded_bytes": 20517146
+    },
+    {
+      "kind": "aggregated",
+      "trial": 4,
+      "warmup": false,
+      "elapsed_ms": 1287.8000000715256,
+      "csv_fetch_ms": 6.800000071525574,
+      "decoded_bytes": 1258982
+    },
+    {
+      "kind": "aggregated",
+      "trial": 5,
+      "warmup": false,
+      "elapsed_ms": 1290.8999999761581,
+      "csv_fetch_ms": 6.299999952316284,
+      "decoded_bytes": 1258982
+    },
+    {
+      "kind": "original",
+      "trial": 5,
+      "warmup": false,
+      "elapsed_ms": 4432.399999976158,
+      "csv_fetch_ms": 82.89999997615814,
+      "decoded_bytes": 20517146
+    }
+  ],
+  "hovers": [
+    {
+      "kind": "aggregated",
+      "samples": [
+        {
+          "dispatch_ms": 11.700000047683716,
+          "to_frame_ms": 32.60000002384186,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.5,
+          "to_frame_ms": 49.799999952316284,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.100000023841858,
+          "to_frame_ms": 33.5,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.600000023841858,
+          "to_frame_ms": 33.39999997615814,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3,
+          "to_frame_ms": 33.299999952316284,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.200000047683716,
+          "to_frame_ms": 33.10000002384186,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.899999976158142,
+          "to_frame_ms": 33.5,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.399999976158142,
+          "to_frame_ms": 33.39999997615814,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.399999976158142,
+          "to_frame_ms": 33.299999952316284,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.200000047683716,
+          "to_frame_ms": 33.5,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.700000047683716,
+          "to_frame_ms": 33.40000009536743,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.299999952316284,
+          "to_frame_ms": 33.39999997615814,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 1.899999976158142,
+          "to_frame_ms": 33,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.799999952316284,
+          "to_frame_ms": 33.699999928474426,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.200000047683716,
+          "to_frame_ms": 33.300000071525574,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.5999999046325684,
+          "to_frame_ms": 33.299999952316284,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 1.7999999523162842,
+          "to_frame_ms": 33.39999997615814,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 1.5,
+          "to_frame_ms": 33.39999997615814,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 1.8000000715255737,
+          "to_frame_ms": 33.5,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 4.300000071525574,
+          "to_frame_ms": 33.200000047683716,
+          "visible": true,
+          "changed": true
+        }
+      ]
+    },
+    {
+      "kind": "original",
+      "samples": [
+        {
+          "dispatch_ms": 5.5,
+          "to_frame_ms": 2120,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 5.5,
+          "to_frame_ms": 1580.2000000476837,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 2.899999976158142,
+          "to_frame_ms": 867.8999999761581,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.799999952316284,
+          "to_frame_ms": 884.6999999284744,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.200000047683716,
+          "to_frame_ms": 834.6000000238419,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.3000000715255737,
+          "to_frame_ms": 1302.2000000476837,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 6.5,
+          "to_frame_ms": 2253.399999976158,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 4.100000023841858,
+          "to_frame_ms": 2186.600000023842,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.1999999284744263,
+          "to_frame_ms": 2271.6999999284744,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 29.399999976158142,
+          "to_frame_ms": 2268.7000000476837,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 6.5,
+          "to_frame_ms": 2286.7999999523163,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 5,
+          "to_frame_ms": 2170,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 5.5,
+          "to_frame_ms": 2170.2000000476837,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 6.299999952316284,
+          "to_frame_ms": 2219.899999976158,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 5.299999952316284,
+          "to_frame_ms": 2103.100000023842,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 4,
+          "to_frame_ms": 2087.399999976158,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 5,
+          "to_frame_ms": 2019,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 3.6999999284744263,
+          "to_frame_ms": 2253.5,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 4.299999952316284,
+          "to_frame_ms": 2270.2999999523163,
+          "visible": true,
+          "changed": true
+        },
+        {
+          "dispatch_ms": 5.600000023841858,
+          "to_frame_ms": 2186.600000023842,
+          "visible": true,
+          "changed": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

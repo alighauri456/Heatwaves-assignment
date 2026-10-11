@@ -1,0 +1,23 @@
+{
+  "original_csv_bytes": 20517146,
+  "aggregated_csv_bytes": 1258982,
+  "original_2020s_cells": 57507,
+  "aggregated_blocks": 14705,
+  "blocks_by_source_cell_count": {
+    "1": 200,
+    "2": 270,
+    "4": 14062,
+    "3": 173
+  },
+  "mean_range": [
+    4.75,
+    44.166666666666664
+  ],
+  "checks": "Each original cell used exactly once; weighted sum preserved; adjacent rectangle edges match; original files unchanged.",
+  "protected_sha256": {
+    "data\\csiro_decade_grid.csv": "c1d61b5c87ad97b13af66b259e160b162d3c4de746d70fe6481d650af2f701d2",
+    "charts\\heatwave_frequency_map.json": "1d5a63a63299eb0d1c4ace63fe842ad4bc3644c9cee053245b01a838d3cf7b0a",
+    "index.html": "74b7e89e61b17baf7e0b8e8fcceb369e2ed8c5470180c51e6a01270094782baf",
+    "css\\styles.css": "3ec2e2d2fa7bb93f152d6be667fccaa27183eee81e35de0efe16ccd3006866a4"
+  }
+}

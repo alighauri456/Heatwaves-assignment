@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../../">
+  <title>Original and 2×2 aggregated map comparison</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5/build/vega.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5/build/vega-lite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6/build/vega-embed.min.js"></script>
+  <style>
+    body { max-width: 940px; margin: 24px auto; padding: 0 20px; font: 16px/1.5 Arial, sans-serif; color: #263238; }
+    section { margin: 32px 0; }
+    .map { display: block; width: 100%; min-height: 500px; }
+  </style>
+</head>
+<body>
+  <h1>2×2 aggregation comparison</h1>
+  <p>Both maps use Canvas and the same colour range. Hover to inspect values.</p>
+  <section>
+    <h2>Original: 57,507 land cells</h2>
+    <div id="original" class="map"></div>
+  </section>
+  <section>
+    <h2>Aggregated: 14,705 blocks</h2>
+    <p>Each 0.22° rectangle shows the mean of its available land cells. Coastal blocks may contain fewer than four cells.</p>
+    <div id="aggregated" class="map"></div>
+  </section>
+  <script>
+    for (const [id, file] of [
+      ['original', 'charts/heatwave_frequency_map.json'],
+      ['aggregated', 'charts/heatwave_frequency_map_reduced_test.json']
+    ]) {
+      vegaEmbed('#' + id, file, {
+        renderer: 'canvas', actions: false, loader: { baseURL: document.baseURI }
+      }).catch(error => { document.getElementById(id).textContent = error.message; });
+    }
+  </script>
+</body>
+</html>

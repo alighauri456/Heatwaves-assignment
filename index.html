@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Australian Heatwaves | FIT3179 Data Visualisation 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5/build/vega.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5/build/vega-lite.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6/build/vega-embed.min.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Australian heatwaves</h1>
+    <p>FIT3179 Data Visualisation 2 · Local preview</p>
+    <div id="national-heatwave-chart" aria-label="National annual heatwave days chart"></div>
+    <section aria-labelledby="frequency-map-heading">
+      <h2 id="frequency-map-heading">Where are heatwaves most frequent?</h2>
+      <p>The map shows average annual heatwave days during the 2020s, using data from 2020–2025.</p>
+      <div id="heatwave-frequency-map" aria-label="Map of average annual heatwave days across Australia"></div>
+    </section>
+    <noscript>Enable JavaScript to view the chart.</noscript>
+  </main>
+  <script>
+    async function renderChart() {
+      try {
+        await vegaEmbed('#national-heatwave-chart', 'charts/national_heatwave_frequency.json', {
+          actions: false,
+          renderer: 'svg',
+          loader: { baseURL: new URL('./', window.location.href).href }
+        });
+      } catch (error) {
+        document.getElementById('national-heatwave-chart').textContent =
+          'The chart could not be loaded. Check your internet connection and serve this page from the project root.';
+        console.error('Unable to load the national heatwave chart:', error);
+      }
+    }
+    renderChart();
+    async function renderMap() {
+      try {
+        await vegaEmbed('#heatwave-frequency-map', 'charts/heatwave_frequency_map.json', {
+          actions: false,
+          renderer: 'canvas',
+          loader: { baseURL: new URL('./', window.location.href).href }
+        });
+      } catch (error) {
+        document.getElementById('heatwave-frequency-map').textContent =
+          'The map could not be loaded. Check your internet connection and serve this page from the project root.';
+        console.error('Unable to load the heatwave frequency map:', error);
+      }
+    }
+    renderMap();
+  </script>
+</body>
+</html>
