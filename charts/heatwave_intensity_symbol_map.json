@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Eight representative locations, not a national search for intensity maxima. Circles are positioned at the nearest valid CSIRO land-grid centres to GeoNames city coordinates. Positive-day weighted mean EHF; maximum over 2020–2025; equal-year average days and runs. Partial years are not annualised; annual boundary runs may be truncated. Basemap: ABS ASGS 2021 (CC BY 4.0).",
+  "title": {
+    "text": "Where are Australia’s most intense heatwaves?",
+    "fontSize": { "expr": "width < 500 ? 11 : 18" },
+    "subtitle": ["Eight representative locations, 2020–2025", "Circle area: maximum EHF · Colour: mean positive EHF"],
+    "anchor": "start",
+    "offset": 16
+  },
+  "width": "container",
+  "height": 520,
+  "autosize": { "type": "fit", "contains": "padding", "resize": true },
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [-134, 0, 0],
+    "center": [0, -27],
+    "parallels": [-18, -36]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/csiro_state_duration_2020_2025.geojson",
+        "format": { "type": "json", "property": "features" }
+      },
+      "mark": { "type": "geoshape", "fill": "#edf0f2", "stroke": "#b8c1c8", "strokeWidth": 0.7 }
+    },
+    {
+      "data": {
+        "url": "data/csiro_city_intensity_2020_2025.csv",
+        "format": { "type": "csv", "parse": { "latitude": "number", "longitude": "number", "max_ehf": "number", "mean_positive_ehf": "number", "mean_heatwave_days": "number", "mean_longest_run": "number", "match_distance_km": "number" } }
+      },
+      "encoding": {
+        "longitude": { "field": "longitude", "type": "quantitative" },
+        "latitude": { "field": "latitude", "type": "quantitative" }
+      },
+      "layer": [
+        {
+          "mark": { "type": "circle", "opacity": 0.9, "stroke": "#233d4d", "strokeWidth": 0.8 },
+          "encoding": {
+            "size": {
+              "field": "max_ehf", "type": "quantitative",
+              "scale": { "type": "linear", "zero": true, "range": [0, 1500] },
+              "legend": { "title": "Maximum EHF (°C²)", "orient": "bottom", "direction": "horizontal", "values": [20, 40, 60], "format": ".0f" }
+            },
+            "color": {
+              "field": "mean_positive_ehf", "type": "quantitative",
+              "scale": { "scheme": "tealblues", "zero": true },
+              "legend": { "title": "Mean positive EHF (°C²)", "orient": "bottom", "direction": "horizontal", "gradientLength": 120, "format": ".1f" }
+            },
+            "tooltip": [
+              { "field": "location", "type": "nominal", "title": "Location" },
+              { "field": "max_ehf", "type": "quantitative", "title": "Maximum EHF (°C²)", "format": ".2f" },
+              { "field": "mean_positive_ehf", "type": "quantitative", "title": "Mean positive EHF (°C²)", "format": ".2f" },
+              { "field": "mean_heatwave_days", "type": "quantitative", "title": "Average annual heatwave days", "format": ".2f" },
+              { "field": "mean_longest_run", "type": "quantitative", "title": "Average annual longest run (days)", "format": ".2f" },
+              { "field": "latitude", "type": "quantitative", "title": "Grid latitude", "format": ".2f" },
+              { "field": "longitude", "type": "quantitative", "title": "Grid longitude", "format": ".2f" },
+              { "field": "match_distance_km", "type": "quantitative", "title": "Distance from city centre (km)", "format": ".2f" }
+            ]
+          }
+        },
+        {
+          "mark": { "type": "text", "dy": -27, "fontSize": 11, "fontWeight": 600, "color": "#263238" },
+          "encoding": { "text": { "field": "location" } }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "background": "transparent",
+    "font": "Arial, sans-serif",
+    "view": { "stroke": null },
+    "title": { "fontSize": 18, "fontWeight": 600, "color": "#263238", "subtitleFontSize": 12, "subtitleColor": "#4B5563", "subtitlePadding": 8 },
+    "legend": { "titleFontSize": 11, "labelFontSize": 11, "titleFontWeight": "normal" }
+  }
+}

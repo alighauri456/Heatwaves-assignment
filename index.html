@@ -26,6 +26,13 @@
       <p>Results use available dates without annualisation; 2025 may be incomplete. Runs touching yearly file boundaries may be truncated. Grey areas have no represented grid cells.</p>
       <p>Sources: CSIRO EHF; <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/data-services-and-apis">ABS ASGS 2021 state and territory boundaries</a> (CC BY 4.0). <a href="data/csiro_state_duration_metadata.json">Aggregation details</a>.</p>
     </section>
+    <section aria-labelledby="intensity-map-heading">
+      <h2 id="intensity-map-heading">Heatwave intensity at representative locations</h2>
+      <div id="heatwave-intensity-map" aria-label="Proportional-symbol map comparing heatwave intensity at eight Australian locations"></div>
+      <p>Circle area shows maximum EHF; colour shows mean EHF across positive-EHF days in 2020–2025. EHF is an intensity index in °C², not air temperature. This compares eight locations, not the most intense cell anywhere in Australia.</p>
+      <p>Each location uses its nearest valid CSIRO land-grid centre (2.3–6.9 km from the city centre). Annual averages use available dates without annualisation; 2025 may be incomplete, and runs may be truncated at year boundaries.</p>
+      <p>Sources: CSIRO EHF; <a href="https://www.geonames.org/search.html?country=AU">GeoNames city coordinates</a>; ABS ASGS 2021 basemap (CC BY 4.0).</p>
+    </section>
     <noscript>Enable JavaScript to view the chart.</noscript>
   </main>
   <script>
@@ -63,6 +70,14 @@
       loader: { baseURL: new URL('./', window.location.href).href }
     }).catch(error => {
       document.getElementById('heatwave-duration-map').textContent = 'The duration map could not be loaded.';
+      console.error(error);
+    });
+    vegaEmbed('#heatwave-intensity-map', 'charts/heatwave_intensity_symbol_map.json', {
+      actions: false,
+      renderer: 'svg',
+      loader: { baseURL: new URL('./', window.location.href).href }
+    }).catch(error => {
+      document.getElementById('heatwave-intensity-map').textContent = 'The intensity map could not be loaded.';
       console.error(error);
     });
   </script>
