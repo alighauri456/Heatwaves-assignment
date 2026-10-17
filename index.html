@@ -16,7 +16,7 @@
       <h1>Australian heatwaves</h1>
       <p class="subtitle">How Australia’s heatwaves are changing in frequency, duration and intensity.</p>
       <p class="introduction">Heatwaves have more than one measure. Start with how many days Australia spends in heatwave conditions, then explore where they occur, how long they last and how intense they can be.</p>
-      <p class="reading-guide">The national record covers 1980–2025. The maps provide a closer look at 2020–2025.</p>
+      <p class="reading-guide">The national charts cover 1980–2025, with 2025 available to 29 August. The maps provide a closer look at 2020–2025.</p>
     </header>
 
     <section class="story-section" aria-labelledby="national-heading">
@@ -28,8 +28,18 @@
       <p class="source">Source: CSIRO heatwave data · 1980–2025.</p>
     </section>
 
+    <section class="story-section" aria-labelledby="monthly-heatmap-heading">
+      <p class="eyebrow">02 · The seasonal picture</p>
+      <h2 id="monthly-heatmap-heading">When in the year do heatwaves occur?</h2>
+      <p class="section-intro">The annual line shows how much heatwave activity occurs; this heatmap reveals when it happens. Read across a row to explore one year, or down a month to compare it over time. Each square shows the average number of heatwave days per land grid cell in that month.</p>
+      <p class="takeaway"><strong>What to notice:</strong> Activity is strongest in summer, especially January and December. Stronger summer activity is more visible in recent decades, with 2019 standing out, although the increase is uneven from year to year.</p>
+      <div class="chart" id="heatwave-monthly-heatmap" aria-label="Year by month heatmap of mean heatwave days per Australian land grid cell, 1980–2025"></div>
+      <p class="chart-note">Grey squares mean no data, rather than no heatwaves. The 2025 record ends on 29 August; August is partial and September–December are unavailable. Hover over a square for its value.</p>
+      <p class="source">Source: CSIRO daily EHF · 1980–2025, excluding incomplete 1979. <a href="data/csiro_monthly_heatwave_activity.csv">Monthly data</a>.</p>
+    </section>
+
     <section class="story-section" aria-labelledby="frequency-map-heading">
-      <p class="eyebrow">02 · Where heatwaves occur</p>
+      <p class="eyebrow">03 · Where heatwaves occur</p>
       <h2 id="frequency-map-heading">Where are heatwave days most common?</h2>
       <p class="section-intro">The national average is only part of the story. This map shows average annual heatwave days in different parts of Australia during 2020–2025.</p>
       <p class="takeaway"><strong>What to notice:</strong> Darker areas spend more days in heatwave conditions each year. This measures time in heatwaves, rather than how hot they become.</p>
@@ -38,7 +48,7 @@
     </section>
 
     <section class="story-section" aria-labelledby="duration-map-heading">
-      <p class="eyebrow">03 · How long heatwaves last</p>
+      <p class="eyebrow">04 · How long heatwaves last</p>
       <h2 id="duration-map-heading">Where do heatwaves last longer?</h2>
       <p class="section-intro">Days spread across several heatwaves can feel different from one long stretch of heat. This map compares the average length of each year’s longest heatwave across states and territories during 2020–2025.</p>
       <p class="takeaway"><strong>What to notice:</strong> Darker purple means longer uninterrupted stretches of heatwave conditions on average. Hover over a state or territory for more detail.</p>
@@ -47,7 +57,7 @@
     </section>
 
     <section class="story-section" aria-labelledby="intensity-map-heading">
-      <p class="eyebrow">04 · How intense heatwaves become</p>
+      <p class="eyebrow">05 · How intense heatwaves become</p>
       <h2 id="intensity-map-heading">How does intensity vary between locations?</h2>
       <p class="section-intro">Duration tells us how long the heat lasts; intensity adds another perspective. These eight locations compare intensity using the Excess Heat Factor (EHF), an index of heat relative to local conditions.</p>
       <p class="takeaway"><strong>What to notice:</strong> Larger circles show higher peak intensity; darker circles show higher average intensity on heatwave days. These are eight selected locations, rather than a ranking of all Australia.</p>
@@ -59,6 +69,7 @@
       <h2 id="methodology-heading">Methodology and limitations</h2>
       <p><strong>Reading the measures.</strong> Heatwave days count days with a positive Excess Heat Factor (EHF); duration counts consecutive positive-EHF days. EHF is an intensity index expressed in °C², not air temperature. The intensity map shows the maximum EHF and the mean across positive-EHF days during 2020–2025.</p>
       <p><strong>Spatial averages.</strong> The national line shows average annual heatwave days per grid cell, not a total across the country. For state duration, each grid cell’s annual longest run is averaged within its state, then across years. Cells and years receive equal weight. State averages hide local differences; grey areas have no represented grid cells.</p>
+      <p><strong>Monthly activity.</strong> Daily CSIRO EHF is processed offline using the existing Australian land mask. For each month, positive-EHF days are counted per cell, then averaged equally across cells with finite EHF on every available date. This is not an area- or population-weighted measure. Monthly counts use available dates without filling gaps or adjusting to a full month. 1980–2024 have complete daily coverage; 2025 ends on 29 August. The seasonal takeaway uses complete years, and the annual average rises from 12.3 days per cell in the 1980s to 17.3 in the 2010s. <a href="data/csiro_monthly_heatwave_activity_metadata.json">Monthly coverage and aggregation details</a>.</p>
       <p><strong>Coverage and boundaries.</strong> The maps cover 2020–2025, not the full 2020s. Results use available dates without annualisation (adjustment to a full year); 2025 may be incomplete. Heatwaves crossing yearly file boundaries may be split, shortening the recorded duration. Unmatched coastal cells are excluded from state summaries.</p>
       <p><strong>Selected locations.</strong> Each intensity location uses the nearest valid CSIRO land-grid centre, 2.3–6.9 km from the city centre. These locations do not identify the most intense grid cell in Australia. The maps compare places in a recent period; they do not show changes in duration or intensity over time.</p>
       <p class="source">Further detail: <a href="data/csiro_state_duration_metadata.json">state aggregation metadata</a>. Prepared for FIT3179 Data Visualisation 2.</p>
@@ -80,6 +91,14 @@
       }
     }
     renderChart();
+    vegaEmbed('#heatwave-monthly-heatmap', 'charts/heatwave_monthly_heatmap.json', {
+      actions: false,
+      renderer: 'svg',
+      loader: { baseURL: new URL('./', window.location.href).href }
+    }).catch(error => {
+      document.getElementById('heatwave-monthly-heatmap').textContent = 'The monthly heatmap could not be loaded.';
+      console.error('Unable to load the monthly heatmap:', error);
+    });
     async function renderMap() {
       try {
         await vegaEmbed('#heatwave-frequency-map', 'charts/heatwave_frequency_map.json', {

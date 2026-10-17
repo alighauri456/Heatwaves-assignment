@@ -65,6 +65,7 @@ p { max-width: 74ch; margin: 0 0 16px; color: var(--muted); }
 .chart { min-height: 320px; }
 
 .source { max-width: none; margin: 16px 0 0; font-size: 0.75rem; line-height: 1.6; }
+.chart-note { max-width: none; margin: 16px 0 0; font-size: 0.8125rem; }
 a { color: #78412e; text-underline-offset: 3px; }
 a:hover { color: var(--ink); }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

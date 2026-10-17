@@ -1,0 +1,145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Monthly equal-cell mean of EHF > 0 day counts across valid Australian land cells. 1979 excluded. Blank values indicate unavailable data, not zero. Computed offline; no raw NetCDF is loaded by the webpage.",
+  "title": {
+    "text": "When do Australia’s heatwaves occur?",
+    "subtitle": "Monthly heatwave activity across Australia, 1980–2025",
+    "fontSize": {
+      "expr": "width < 500 ? 13 : 18"
+    },
+    "subtitleFontSize": {
+      "expr": "width < 500 ? 9 : 12"
+    },
+    "anchor": "start",
+    "offset": 16
+  },
+  "data": {
+    "url": "data/csiro_monthly_heatwave_activity.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "month": "number",
+        "mean_heatwave_days": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 760,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "mark": {
+    "type": "rect",
+    "invalid": null,
+    "stroke": "#ffffff",
+    "strokeWidth": 0.6
+  },
+  "encoding": {
+    "x": {
+      "field": "month_name",
+      "type": "ordinal",
+      "sort": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelPadding": 8,
+        "labelFontSize": 10
+      }
+    },
+    "y": {
+      "field": "year",
+      "type": "ordinal",
+      "sort": "ascending",
+      "title": "Year",
+      "axis": {
+        "labelFontSize": 10,
+        "labelOverlap": false,
+        "labelPadding": 6
+      }
+    },
+    "color": {
+      "condition": {
+        "test": "!isValid(datum.mean_heatwave_days)",
+        "value": "#e5e7eb"
+      },
+      "field": "mean_heatwave_days",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "yelloworangered",
+        "zero": true
+      },
+      "legend": {
+        "title": "Mean heatwave days per grid cell",
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 200,
+        "gradientThickness": 12,
+        "titleLimit": 280,
+        "format": ".1f"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "month_name",
+        "type": "nominal",
+        "title": "Month"
+      },
+      {
+        "field": "mean_heatwave_days",
+        "type": "quantitative",
+        "title": "Mean heatwave days per grid cell",
+        "format": ".2f"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "font": "Arial, sans-serif",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#4B5563",
+      "titleColor": "#374151"
+    },
+    "title": {
+      "fontWeight": 600,
+      "color": "#263238",
+      "subtitleColor": "#4B5563",
+      "subtitlePadding": 8
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelColor": "#4B5563",
+      "titleColor": "#374151"
+    }
+  }
+}
