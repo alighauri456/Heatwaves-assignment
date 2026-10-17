@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Eight representative locations, not a national search for intensity maxima. Circles are positioned at the nearest valid CSIRO land-grid centres to GeoNames city coordinates. Positive-day weighted mean EHF; maximum over 2020–2025; equal-year average days and runs. Partial years are not annualised; annual boundary runs may be truncated. Basemap: ABS ASGS 2021 (CC BY 4.0).",
   "title": {
-    "text": "Where are Australia’s most intense heatwaves?",
+    "text": "Heatwave intensity at eight locations",
     "fontSize": { "expr": "width < 500 ? 11 : 18" },
     "subtitle": ["Eight representative locations, 2020–2025", "Circle area: maximum EHF · Colour: mean positive EHF"],
     "anchor": "start",
