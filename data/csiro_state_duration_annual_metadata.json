@@ -1,0 +1,137 @@
+{
+  "years": [
+    1980,
+    1981,
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "excluded_years": [
+    1979
+  ],
+  "aggregation": "Equal-cell mean of annual longest positive-EHF runs within each state; each annual state mean is one boxplot observation.",
+  "boundary_source": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/MapServer/0",
+  "boundary_license": "ABS CC BY 4.0",
+  "grid_cells": 57507,
+  "unmatched_cells": 121,
+  "border_ties": 0,
+  "cells_by_state": {
+    "New South Wales": 6341,
+    "Victoria": 1889,
+    "Queensland": 12534,
+    "South Australia": 7602,
+    "Western Australia": 18805,
+    "Tasmania": 585,
+    "Northern Territory": 9613,
+    "Australian Capital Territory": 17,
+    "Other Territories": 0
+  },
+  "caveats": [
+    "1979 excluded because incomplete.",
+    "2025 ends on 29 August; no annualisation.",
+    "Annual file boundaries may split runs.",
+    "Unmatched coastal cells excluded; border ties use lowest ABS state code.",
+    "Other Territories has no represented cells and is omitted, not assigned zero.",
+    "Distributions describe variation between annual state means, not between individual events or grid cells."
+  ],
+  "validation": "2020\u20132025 annual means reproduce existing choropleth means within 0.000002 days.",
+  "summaries": {
+    "Australian Capital Territory": {
+      "years": 46,
+      "median": 5.117647,
+      "q1": 3.014706,
+      "q3": 6.22058825,
+      "iqr": 3.2058822499999997
+    },
+    "New South Wales": {
+      "years": 46,
+      "median": 5.2026495,
+      "q1": 3.623364,
+      "q3": 6.62703075,
+      "iqr": 3.0036667500000003
+    },
+    "Northern Territory": {
+      "years": 46,
+      "median": 5.584989,
+      "q1": 4.6281335,
+      "q3": 7.7436025,
+      "iqr": 3.115469
+    },
+    "Queensland": {
+      "years": 46,
+      "median": 6.3454605,
+      "q1": 4.6279319999999995,
+      "q3": 7.913336,
+      "iqr": 3.2854040000000007
+    },
+    "South Australia": {
+      "years": 46,
+      "median": 5.0664955,
+      "q1": 3.4468562499999997,
+      "q3": 6.484477999999999,
+      "iqr": 3.0376217499999996
+    },
+    "Tasmania": {
+      "years": 46,
+      "median": 4.165812,
+      "q1": 3.0952995000000003,
+      "q3": 5.253846,
+      "iqr": 2.1585465
+    },
+    "Victoria": {
+      "years": 46,
+      "median": 4.27766,
+      "q1": 3.247221,
+      "q3": 6.1286395,
+      "iqr": 2.8814185
+    },
+    "Western Australia": {
+      "years": 46,
+      "median": 5.4407075,
+      "q1": 4.348617,
+      "q3": 7.3192635,
+      "iqr": 2.9706465
+    }
+  }
+}

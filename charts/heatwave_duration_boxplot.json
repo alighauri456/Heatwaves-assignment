@@ -1,0 +1,49 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Each observation is the equal-cell state mean of grid cells' annual longest positive-EHF runs. 46 annual means per state, 1980–2025; excludes incomplete 1979. 2025 is partial. Other Territories has no represented cells.",
+  "title": {
+    "text": "How variable is heatwave duration across Australia?",
+    "fontSize": {"expr": "width < 500 ? 10 : 18"},
+    "subtitle": ["Distribution of annual longest heatwave runs by state and territory,", "1980–2025"],
+    "subtitleFontSize": {"expr": "width < 500 ? 9 : 12"},
+    "anchor": "start",
+    "offset": 18
+  },
+  "data": {"url": "data/csiro_state_duration_annual.csv", "format": {"type": "csv", "parse": {"year": "number", "annual_longest_run": "number"}}},
+  "width": "container",
+  "height": 340,
+  "autosize": {"type": "fit", "contains": "padding", "resize": true},
+  "encoding": {
+    "x": {
+      "field": "state", "type": "nominal", "title": "State / territory",
+      "sort": ["New South Wales", "Victoria", "Queensland", "South Australia", "Western Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"],
+      "axis": {"labelAngle": 0, "labelExpr": "{'New South Wales':'NSW','Victoria':'VIC','Queensland':'QLD','South Australia':'SA','Western Australia':'WA','Tasmania':'TAS','Northern Territory':'NT','Australian Capital Territory':'ACT'}[datum.label]", "labelOverlap": false}
+    },
+    "y": {"field": "annual_longest_run", "type": "quantitative", "title": "Annual longest run (days)", "scale": {"zero": true}}
+  },
+  "layer": [
+    {
+      "mark": {"type": "boxplot", "extent": 1.5, "size": 22, "outliers": false, "color": "#89709e", "median": {"color": "#263238"}, "ticks": {"size": 22}},
+      "encoding": {"tooltip": [
+        {"field": "state", "type": "nominal", "title": "State / territory"},
+        {"field": "annual_longest_run", "aggregate": "q1", "type": "quantitative", "title": "Lower quartile (days)", "format": ".2f"},
+        {"field": "annual_longest_run", "aggregate": "median", "type": "quantitative", "title": "Median (days)", "format": ".2f"},
+        {"field": "annual_longest_run", "aggregate": "q3", "type": "quantitative", "title": "Upper quartile (days)", "format": ".2f"}
+      ]}
+    },
+    {
+      "mark": {"type": "circle", "size": 22, "opacity": 0.28, "color": "#5e4678"},
+      "encoding": {"tooltip": [
+        {"field": "state", "type": "nominal", "title": "State / territory"},
+        {"field": "year", "type": "ordinal", "title": "Year"},
+        {"field": "annual_longest_run", "type": "quantitative", "title": "Annual longest run (days)", "format": ".2f"}
+      ]}
+    }
+  ],
+  "config": {
+    "font": "Arial",
+    "view": {"stroke": null},
+    "axis": {"labelColor": "#4b5563", "titleColor": "#263238", "gridColor": "#e5e7eb", "titlePadding": 12},
+    "title": {"color": "#263238", "subtitleColor": "#4b5563"}
+  }
+}
