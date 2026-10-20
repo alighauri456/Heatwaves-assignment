@@ -107,8 +107,22 @@
       <p class="source">Source: CSIRO daily EHF, processed offline using the existing Natural Earth Australian land mask. <a href="data/csiro_intensity_decade_density.csv">Processed densities</a> · <a href="data/csiro_intensity_decade_density_metadata.json">Processing, coverage and distribution summaries</a>.</p>
     </section>
 
+    <section class="story-section city-profiles" aria-labelledby="city-profiles-heading">
+      <p class="eyebrow">08 · City heatwave profiles</p>
+      <h2 id="city-profiles-heading">Different cities experience different kinds of heatwaves</h2>
+      <p class="section-intro">Follow each city’s line across four measures to see its heatwave profile. Every vertical axis is independently normalised from the lowest to the highest value among these eight locations. Positions compare cities within a measure; they do not imply that days and EHF have the same units. Axis ticks and tooltips show the original values.</p>
+      <p class="takeaway"><strong>What to notice:</strong> Darwin has the most average annual heatwave days (23.7) and the longest average annual runs (10.8 days), but the lowest mean and maximum EHF among these locations. Adelaide has the highest mean positive EHF (15.1 °C²), while Melbourne has the highest maximum EHF (70.7 °C²). Longer or more frequent heatwaves do not necessarily have higher EHF.</p>
+      <p class="chart-note">Hover over a city’s line or point to highlight its complete profile and see all four original values. On narrow screens, scroll the chart horizontally to compare all four axes.</p>
+      <div class="profile-scroll" role="region" aria-label="City heatwave profiles; scroll horizontally on small screens" tabindex="0">
+        <div class="chart" id="city-heatwave-parallel-coordinates" aria-label="Parallel coordinates plot of heatwave frequency, longest duration, mean EHF and maximum EHF for eight representative Australian cities"></div>
+      </div>
+      <p class="chart-note">Each city uses the same nearest valid CSIRO land-grid centre as the intensity map, 2.3–6.9 km from its city centre. Annual heatwave days and longest runs are averaged equally across 2020–2025; mean positive EHF is weighted by positive-day counts. Maximum EHF is the highest recorded value in the period. EHF describes heat relative to local conditions, not air temperature.</p>
+      <p class="chart-note">The period includes partial 2025 data to 29 August without adjustment to a full year. Runs may be split at annual file boundaries. These eight selected locations are not a national ranking.</p>
+      <p class="source">Source: CSIRO heatwave data; GeoNames city coordinates. <a href="data/csiro_city_intensity_2020_2025.csv">Existing city-level data</a>, shared with the intensity map.</p>
+    </section>
+
     <section class="methodology" aria-labelledby="methodology-heading">
-      <p class="eyebrow">08 · Understanding the data</p>
+      <p class="eyebrow">09 · Understanding the data</p>
       <h2 id="methodology-heading">Methodology and limitations</h2>
       <div class="methodology-columns">
       <p><strong>Reading the measures.</strong> Heatwave days count days with a positive Excess Heat Factor (EHF); duration counts consecutive positive-EHF days. EHF is an intensity index expressed in °C², not air temperature. The intensity map shows the maximum EHF and the mean across positive-EHF days during 2020–2025.</p>
@@ -116,6 +130,7 @@
       <p><strong>Duration distribution.</strong> The boxplot uses the same equal-cell annual state means as the duration map, but keeps each year separate for 1980–2025. Each state contributes 46 annual values, with equal weight per year. Boxes show the middle 50% of those values, not variation between heatwave events. Unmatched coastal cells are excluded using the same full ABS boundary join; the ACT is represented by 17 grid centres.</p>
       <p><strong>Frequency comparison.</strong> Annual counts of days with positive EHF are averaged equally across grid cells in each state, then equally across the ten years in each comparison period. The full ABS boundary join excludes unmatched coastal cells; this is not area- or population-weighted. Change is the 2016–2025 average minus the 1980–1989 average, expressed in days. Sorting uses its absolute magnitude. Partial 2025 counts are included without annualisation.</p>
       <p><strong>Intensity ridges.</strong> Finite positive daily EHF values are pooled across land grid cells and available dates within each period, with equal weight per grid-cell-day and no area or population weighting. Shared 0.5 °C² histogram bins are smoothed with a Gaussian bandwidth of 1 °C², reflected at zero. Each curve is normalised to unit area in original EHF units. This compares conditional intensity distributions, not the incidence of intense days across all days. Counts reconcile with the existing annual national summaries.</p>
+      <p><strong>City profiles.</strong> Each metric is independently min–max normalised across the eight selected locations: (value − minimum) / (maximum − minimum). A position of zero indicates the lowest observed city value, not zero days or EHF. If all cities share a value, the metric is placed at the midpoint. Original values and aggregation are retained from the existing city intensity dataset.</p>
       <p><strong>Monthly activity.</strong> Daily CSIRO EHF is processed offline using the existing Australian land mask. For each month, positive-EHF days are counted per cell, then averaged equally across cells with finite EHF on every available date. This is not an area- or population-weighted measure. Monthly counts use available dates without filling gaps or adjusting to a full month. 1980–2024 have complete daily coverage; 2025 ends on 29 August. The seasonal takeaway uses complete years, and the annual average rises from 12.3 days per cell in the 1980s to 17.3 in the 2010s. <a href="data/csiro_monthly_heatwave_activity_metadata.json">Monthly coverage and aggregation details</a>.</p>
       <p><strong>Coverage and boundaries.</strong> The maps cover 2020–2025, not the full 2020s. Results use available dates without annualisation (adjustment to a full year); 2025 may be incomplete. Heatwaves crossing yearly file boundaries may be split, shortening the recorded duration. Unmatched coastal cells are excluded from state summaries.</p>
       <p><strong>Selected locations.</strong> Each intensity location uses the nearest valid CSIRO land-grid centre, 2.3–6.9 km from the city centre. These locations do not identify the most intense grid cell in Australia. The maps compare places in a recent period; they do not show changes in duration or intensity over time.</p>
@@ -200,6 +215,14 @@
     }).catch(error => {
       document.getElementById('heatwave-intensity-ridgeline').textContent = 'The intensity distribution could not be loaded.';
       console.error('Unable to load the intensity ridgeline:', error);
+    });
+    vegaEmbed('#city-heatwave-parallel-coordinates', 'charts/city_heatwave_parallel_coordinates.json', {
+      actions: false,
+      renderer: 'svg',
+      loader: { baseURL: new URL('./', window.location.href).href }
+    }).catch(error => {
+      document.getElementById('city-heatwave-parallel-coordinates').textContent = 'The city heatwave profiles could not be loaded.';
+      console.error('Unable to load the city parallel coordinates:', error);
     });
   </script>
 </body>

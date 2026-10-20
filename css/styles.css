@@ -118,3 +118,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 }
 
 .intensity-ridgeline .chart-note { max-width: 80ch; }
+
+.city-profiles .chart-note { max-width: 80ch; }
+.profile-scroll { overflow-x: auto; padding-bottom: 8px; }
+.profile-scroll .chart { min-width: 760px; }
+.profile-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.profile-scroll { margin-top: 20px; }

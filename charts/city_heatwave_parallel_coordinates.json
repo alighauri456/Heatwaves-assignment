@@ -1,0 +1,327 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Eight representative city grid-cell profiles, 2020–2025. Each metric is independently min–max normalised across these cities; ticks and tooltips retain original units. Reuses the existing intensity-map CSV without changing its aggregation.",
+  "title": {
+    "text": "Different cities experience different kinds of heatwaves",
+    "subtitle": "Heatwave profiles across representative Australian locations, 2020–2025",
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "offset": 18
+  },
+  "data": {
+    "url": "data/csiro_city_intensity_2020_2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "mean_heatwave_days": "number",
+        "mean_longest_run": "number",
+        "mean_positive_ehf": "number",
+        "max_ehf": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 370,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "transform": [
+    {
+      "fold": [
+        "mean_heatwave_days",
+        "mean_longest_run",
+        "mean_positive_ehf",
+        "max_ehf"
+      ],
+      "as": [
+        "metric",
+        "value"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "min",
+          "field": "value",
+          "as": "minimum"
+        },
+        {
+          "op": "max",
+          "field": "value",
+          "as": "maximum"
+        }
+      ],
+      "groupby": [
+        "metric"
+      ]
+    },
+    {
+      "calculate": "datum.maximum === datum.minimum ? 0.5 : (datum.value - datum.minimum) / (datum.maximum - datum.minimum)",
+      "as": "normalised"
+    },
+    {
+      "calculate": "indexof(['mean_heatwave_days','mean_longest_run','mean_positive_ehf','max_ehf'], datum.metric)",
+      "as": "metric_order"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "metric",
+      "type": "ordinal",
+      "title": null,
+      "sort": [
+        "mean_heatwave_days",
+        "mean_longest_run",
+        "mean_positive_ehf",
+        "max_ehf"
+      ],
+      "scale": {
+        "padding": 0.55
+      },
+      "axis": {
+        "labelExpr": "{'mean_heatwave_days':['Heatwave frequency','Average annual days','(days/year)'],'mean_longest_run':['Longest duration','Average annual longest run','(days)'],'mean_positive_ehf':['Mean EHF intensity','Mean positive EHF','(°C²)'],'max_ehf':['Maximum EHF intensity','Maximum EHF','(°C²)']}[datum.label]",
+        "labelAngle": 0,
+        "labelPadding": 16,
+        "labelLineHeight": 16,
+        "labelLimit": 220,
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "y": {
+      "field": "normalised",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          -0.06,
+          1.06
+        ],
+        "nice": false
+      },
+      "axis": null
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "min",
+              "field": "minimum",
+              "as": "minimum"
+            },
+            {
+              "op": "max",
+              "field": "maximum",
+              "as": "maximum"
+            }
+          ],
+          "groupby": [
+            "metric"
+          ]
+        },
+        {
+          "calculate": "0",
+          "as": "normalised"
+        },
+        {
+          "calculate": "1",
+          "as": "axis_top"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#b9bdc4",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "normalised",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "axis_top"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "min",
+              "field": "minimum",
+              "as": "minimum"
+            },
+            {
+              "op": "max",
+              "field": "maximum",
+              "as": "maximum"
+            }
+          ],
+          "groupby": [
+            "metric"
+          ]
+        },
+        {
+          "calculate": "[0, 0.25, 0.5, 0.75, 1]",
+          "as": "positions"
+        },
+        {
+          "flatten": [
+            "positions"
+          ],
+          "as": [
+            "normalised"
+          ]
+        },
+        {
+          "calculate": "datum.minimum + datum.normalised * (datum.maximum - datum.minimum)",
+          "as": "original_tick"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -7,
+        "fontSize": 10,
+        "color": "#6b7280"
+      },
+      "encoding": {
+        "text": {
+          "field": "original_tick",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "params": [
+        {
+          "name": "cityHover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "location"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout",
+            "toggle": false
+          }
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 48
+        },
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "detail": {
+          "field": "location"
+        },
+        "order": {
+          "field": "metric_order",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "location",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Perth",
+              "Adelaide",
+              "Melbourne",
+              "Hobart",
+              "Sydney",
+              "Brisbane",
+              "Darwin",
+              "Alice Springs"
+            ],
+            "range": [
+              "#8a5b46",
+              "#a3482e",
+              "#78638e",
+              "#738a83",
+              "#55768b",
+              "#9b884d",
+              "#385d60",
+              "#ad7c88"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "columns": 4,
+            "symbolStrokeWidth": 3,
+            "labelLimit": 110,
+            "padding": 12
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "cityHover",
+            "value": 0.9
+          },
+          "value": 0.1
+        },
+        "tooltip": [
+          {
+            "field": "location",
+            "type": "nominal",
+            "title": "City"
+          },
+          {
+            "field": "mean_heatwave_days",
+            "type": "quantitative",
+            "title": "Average annual heatwave days (days/year)",
+            "format": ".2f"
+          },
+          {
+            "field": "mean_longest_run",
+            "type": "quantitative",
+            "title": "Average annual longest duration (days)",
+            "format": ".2f"
+          },
+          {
+            "field": "mean_positive_ehf",
+            "type": "quantitative",
+            "title": "Mean positive EHF (°C²)",
+            "format": ".2f"
+          },
+          {
+            "field": "max_ehf",
+            "type": "quantitative",
+            "title": "Maximum EHF (°C²)",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#4b5563",
+      "labelFontSize": 11
+    },
+    "legend": {
+      "labelColor": "#4b5563",
+      "labelFontSize": 11
+    },
+    "title": {
+      "color": "#263238",
+      "subtitleColor": "#4b5563"
+    }
+  }
+}
