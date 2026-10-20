@@ -1,0 +1,273 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "BOM ACORN-SAT Adelaide daily maximum temperature distributions. Every valid daily temperature retained; missing dates/values omitted. Shared 1 °C density bandwidth and temperature/density scales. Mirrored density creates one violin per period; dark segment marks the observed median.",
+  "title": {
+    "text": "How has Adelaide’s temperature distribution shifted?",
+    "subtitle": "Daily maximum temperatures recorded by BOM ACORN-SAT across selected periods",
+    "anchor": "start",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "offset": 18
+  },
+  "data": {
+    "url": "data/bom_adelaide_tmax_periods.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "period": "number",
+        "tmax": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "{'1910':'1910–1929','1940':'1940–1959','1970':'1970–1989','2000':'2000–2019','2020':'2020–2024'}[datum.period]",
+      "as": "period_label"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "median",
+          "field": "tmax",
+          "as": "median_tmax"
+        },
+        {
+          "op": "count",
+          "as": "observations"
+        }
+      ],
+      "groupby": [
+        "period"
+      ]
+    },
+    {
+      "density": "tmax",
+      "groupby": [
+        "period",
+        "period_label",
+        "median_tmax",
+        "observations"
+      ],
+      "bandwidth": 1,
+      "extent": [
+        0,
+        55
+      ],
+      "steps": 221,
+      "as": [
+        "temperature",
+        "density"
+      ]
+    },
+    {
+      "calculate": "-datum.density",
+      "as": "negative_density"
+    }
+  ],
+  "facet": {
+    "column": {
+      "field": "period_label",
+      "type": "ordinal",
+      "title": null,
+      "sort": [
+        "1910–1929",
+        "1940–1959",
+        "1970–1989",
+        "2000–2019",
+        "2020–2024"
+      ],
+      "header": {
+        "labelOrient": "bottom",
+        "labelAngle": 0,
+        "labelFontSize": 12,
+        "labelColor": "#4b5563",
+        "labelPadding": 12
+      }
+    }
+  },
+  "spacing": 12,
+  "spec": {
+    "width": 145,
+    "height": 340,
+    "encoding": {
+      "y": {
+        "field": "temperature",
+        "type": "quantitative",
+        "title": "Daily maximum temperature (°C)",
+        "scale": {
+          "domain": [
+            0,
+            55
+          ],
+          "nice": false
+        },
+        "axis": {
+          "values": [
+            0,
+            10,
+            20,
+            30,
+            40,
+            50
+          ],
+          "titlePadding": 12
+        }
+      }
+    },
+    "layer": [
+      {
+        "mark": {
+          "type": "area",
+          "orient": "horizontal",
+          "opacity": 0.85
+        },
+        "encoding": {
+          "x": {
+            "field": "negative_density",
+            "type": "quantitative",
+            "axis": null,
+            "title": null
+          },
+          "x2": {
+            "field": "density"
+          },
+          "color": {
+            "field": "period_label",
+            "type": "ordinal",
+            "scale": {
+              "domain": [
+                "1910–1929",
+                "1940–1959",
+                "1970–1989",
+                "2000–2019",
+                "2020–2024"
+              ],
+              "range": [
+                "#e8d8cd",
+                "#d7b9a5",
+                "#c7987c",
+                "#b57556",
+                "#a3482e"
+              ]
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {
+              "field": "period_label",
+              "type": "nominal",
+              "title": "Period"
+            },
+            {
+              "field": "temperature",
+              "type": "quantitative",
+              "title": "Temperature (°C)",
+              "format": ".1f"
+            },
+            {
+              "field": "density",
+              "type": "quantitative",
+              "title": "Relative density (per °C)",
+              "format": ".4f"
+            },
+            {
+              "field": "median_tmax",
+              "type": "quantitative",
+              "title": "Observed median (°C)",
+              "format": ".1f"
+            },
+            {
+              "field": "observations",
+              "type": "quantitative",
+              "title": "Valid daily observations",
+              "format": ",d"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "aggregate": [
+              {
+                "op": "max",
+                "field": "median_tmax",
+                "as": "median_tmax"
+              },
+              {
+                "op": "max",
+                "field": "observations",
+                "as": "observations"
+              }
+            ],
+            "groupby": [
+              "period_label"
+            ]
+          }
+        ],
+        "mark": {
+          "type": "rule",
+          "color": "#263238",
+          "strokeWidth": 3
+        },
+        "encoding": {
+          "x": {
+            "datum": -0.018,
+            "type": "quantitative",
+            "axis": null
+          },
+          "x2": {
+            "datum": 0.018
+          },
+          "y": {
+            "field": "median_tmax",
+            "type": "quantitative"
+          },
+          "tooltip": [
+            {
+              "field": "period_label",
+              "type": "nominal",
+              "title": "Period"
+            },
+            {
+              "field": "median_tmax",
+              "type": "quantitative",
+              "title": "Observed median (°C)",
+              "format": ".1f"
+            },
+            {
+              "field": "observations",
+              "type": "quantitative",
+              "title": "Valid daily observations",
+              "format": ",d"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "x": "shared",
+      "y": "shared"
+    }
+  },
+  "config": {
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#4b5563",
+      "titleColor": "#263238",
+      "gridColor": "#e5e7eb",
+      "domain": false,
+      "tickColor": "#d1d5db",
+      "titleFontWeight": "normal"
+    },
+    "title": {
+      "color": "#263238",
+      "subtitleColor": "#4b5563"
+    }
+  }
+}
