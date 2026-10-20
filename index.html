@@ -12,28 +12,34 @@
 <body>
   <main>
     <header class="page-header">
-      <p class="eyebrow">Australia · Heatwave patterns</p>
+      <p class="eyebrow">Australia · Climate &amp; heatwave patterns</p>
       <h1>Australian heatwaves</h1>
       <p class="subtitle">How Australia’s heatwaves are changing in frequency, duration and intensity.</p>
+      <div class="hero-context">
       <p class="introduction">Heatwaves have more than one measure. Start with how many days Australia spends in heatwave conditions, then explore where they occur, how long they last and how intense they can be.</p>
-      <p class="reading-guide">The national charts cover 1980–2025, with 2025 available to 29 August. The maps provide a closer look at 2020–2025.</p>
+      <p class="reading-guide">The national charts cover 1980–2025, with 2025 available to 29 August. The maps provide a closer look at 2020–2025. BOM ACORN-SAT adds Adelaide temperature context from 1910–2024.</p>
+      </div>
     </header>
 
     <section class="story-section" aria-labelledby="national-heading">
       <p class="eyebrow">01 · The national picture</p>
       <h2 id="national-heading">How many days are spent in heatwaves?</h2>
+      <div class="section-lead">
       <p class="section-intro">This chart tracks average annual heatwave days per grid cell: the small areas used to measure conditions across Australia. It counts days spent in heatwaves, rather than separate events.</p>
       <p class="takeaway"><strong>What to notice:</strong> Follow the changes from year to year. A national average brings together places with very different heatwave experiences.</p>
-      <div class="chart" id="national-heatwave-chart" aria-label="Line chart of average annual heatwave days per grid cell, 1980–2025"></div>
+      </div>
+      <div class="chart-frame"><div class="chart" id="national-heatwave-chart" aria-label="Line chart of average annual heatwave days per grid cell, 1980–2025"></div></div>
       <p class="source">Source: CSIRO heatwave data · 1980–2025.</p>
     </section>
 
     <section class="story-section" aria-labelledby="monthly-heatmap-heading">
       <p class="eyebrow">02 · The seasonal picture</p>
       <h2 id="monthly-heatmap-heading">When in the year do heatwaves occur?</h2>
+      <div class="section-lead">
       <p class="section-intro">The annual line shows how much heatwave activity occurs; this heatmap reveals when it happens. Read across a row to explore one year, or down a month to compare it over time. Each square shows the average number of heatwave days per land grid cell in that month.</p>
       <p class="takeaway"><strong>What to notice:</strong> Activity is strongest in summer, especially January and December. Stronger summer activity is more visible in recent decades, with 2019 standing out, although the increase is uneven from year to year.</p>
-      <div class="chart" id="heatwave-monthly-heatmap" aria-label="Year by month heatmap of mean heatwave days per Australian land grid cell, 1980–2025"></div>
+      </div>
+      <div class="chart-frame"><div class="chart" id="heatwave-monthly-heatmap" aria-label="Year by month heatmap of mean heatwave days per Australian land grid cell, 1980–2025"></div></div>
       <p class="chart-note">Grey squares mean no data, rather than no heatwaves. The 2025 record ends on 29 August; August is partial and September–December are unavailable. Hover over a square for its value.</p>
       <p class="source">Source: CSIRO daily EHF · 1980–2025, excluding incomplete 1979. <a href="data/csiro_monthly_heatwave_activity.csv">Monthly data</a>.</p>
     </section>
@@ -41,9 +47,11 @@
     <section class="story-section" aria-labelledby="frequency-map-heading">
       <p class="eyebrow">03 · Where heatwaves occur</p>
       <h2 id="frequency-map-heading">Where are heatwave days most common?</h2>
+      <div class="section-lead">
       <p class="section-intro">The national average is only part of the story. This map shows average annual heatwave days in different parts of Australia during 2020–2025.</p>
       <p class="takeaway"><strong>What to notice:</strong> Darker areas spend more days in heatwave conditions each year. This measures time in heatwaves, rather than how hot they become.</p>
-      <div class="chart" id="heatwave-frequency-map" aria-label="Map of average annual heatwave days across Australia"></div>
+      </div>
+      <div class="chart-frame"><div class="chart" id="heatwave-frequency-map" aria-label="Map of average annual heatwave days across Australia"></div></div>
       <p class="source">Source: CSIRO heatwave data · 2020–2025.</p>
     </section>
 
@@ -57,7 +65,7 @@
       <h3 id="duration-map-heading">Where do heatwaves last longer?</h3>
       <p class="section-intro">Days spread across several heatwaves can feel different from one long stretch of heat. This map compares the average length of each year’s longest heatwave across states and territories during 2020–2025.</p>
       <p class="takeaway"><strong>What to notice:</strong> Darker purple means longer uninterrupted stretches of heatwave conditions on average. Hover over a state or territory for more detail.</p>
-      <div class="chart" id="heatwave-duration-map" aria-label="Map of average annual longest heatwave duration by state and territory"></div>
+      <div class="chart-frame"><div class="chart" id="heatwave-duration-map" aria-label="Map of average annual longest heatwave duration by state and territory"></div></div>
       <p class="source">Source: CSIRO heatwave data; <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/data-services-and-apis">ABS ASGS 2021 boundaries</a> (CC BY 4.0).</p>
     </article>
 
@@ -66,7 +74,7 @@
       <h3 id="intensity-map-heading">How does intensity vary between locations?</h3>
       <p class="section-intro">Duration tells us how long the heat lasts; intensity adds another perspective. These eight locations compare intensity using the Excess Heat Factor (EHF), an index of heat relative to local conditions.</p>
       <p class="takeaway"><strong>What to notice:</strong> Larger circles show higher peak intensity; darker circles show higher average intensity on heatwave days. These are eight selected locations, rather than a ranking of all Australia.</p>
-      <div class="chart" id="heatwave-intensity-map" aria-label="Map comparing heatwave intensity at eight Australian locations"></div>
+      <div class="chart-frame"><div class="chart" id="heatwave-intensity-map" aria-label="Map comparing heatwave intensity at eight Australian locations"></div></div>
       <p class="source">Source: CSIRO heatwave data; <a href="https://www.geonames.org/search.html?country=AU">GeoNames city coordinates</a>; ABS ASGS 2021 basemap (CC BY 4.0).</p>
     </article>
 
@@ -76,33 +84,45 @@
     <section class="story-section duration-distribution" aria-labelledby="duration-boxplot-heading">
       <p class="eyebrow">05 · Duration from year to year</p>
       <h2 id="duration-boxplot-heading">How variable is heatwave duration across Australia?</h2>
+      <div class="section-lead">
       <p class="section-intro">The duration map summarises a recent period. These boxes look further back, comparing 46 annual state averages from 1980–2025. For each year, we average the longest heatwave run recorded at each grid cell within a state or territory.</p>
-      <p class="takeaway"><strong>What to notice:</strong> Queensland has the highest median annual state average (6.3 days) and the widest spread across the middle half of years. Tasmania has the lowest median (4.2 days) and the narrowest middle-half spread. These describe variation between years in state averages; individual places can experience longer runs.</p>
-      <div class="chart" id="heatwave-duration-boxplot" aria-label="Boxplots of annual state-average longest heatwave runs, with individual-year points, 1980–2025"></div>
+      <p class="takeaway"><strong>What to notice:</strong> Queensland has the highest median annual state average (6.3 days) and widest middle-half spread; Tasmania has the lowest median (4.2 days) and narrowest spread. These compare annual state averages; local heatwave runs can be longer.</p>
+      </div>
+      <div class="chart-frame"><div class="chart" id="heatwave-duration-boxplot" aria-label="Boxplots of annual state-average longest heatwave runs, with individual-year points, 1980–2025"></div></div>
+      <div class="chart-context">
       <p class="chart-note">Each dot is one year; hover for its state, year and duration. The line inside each box marks the median, and the box covers the middle half of years. Whiskers extend to the most distant values within 1.5 box lengths; dots beyond them remain visible. NSW = New South Wales; VIC = Victoria; QLD = Queensland; SA = South Australia; WA = Western Australia; TAS = Tasmania; NT = Northern Territory; ACT = Australian Capital Territory.</p>
       <p class="chart-note">1979 is excluded because it is incomplete. 2025 ends on 29 August and is not adjusted to a full year. Runs crossing annual file boundaries may be split. Other Territories has no represented grid cells and is omitted.</p>
+      </div>
       <p class="source">Source: CSIRO processed annual grid data; ABS ASGS 2021 state boundaries (CC BY 4.0). <a href="data/csiro_state_duration_annual.csv">Annual state data</a> · <a href="data/csiro_state_duration_annual_metadata.json">Aggregation and coverage details</a>.</p>
     </section>
 
     <section class="story-section frequency-change" aria-labelledby="frequency-change-heading">
       <p class="eyebrow">06 · Frequency over time</p>
       <h2 id="frequency-change-heading">How much have heatwave days changed since the 1980s?</h2>
+      <div class="section-lead">
       <p class="section-intro">Compare 1980–1989 with 2016–2025. Each point shows the average annual heatwave days per grid cell within a state or territory, giving cells and years equal weight. The connecting line shows the difference between periods; states are ordered by the size of that change.</p>
       <p class="takeaway"><strong>What to notice:</strong> All eight states and territories have higher averages in 2016–2025. New South Wales and Queensland show the largest increases, both about 10 additional heatwave days per year. Victoria has the smallest increase, about 3.2 days.</p>
-      <div class="chart" id="state-heatwave-change-dumbbell" aria-label="Dumbbell chart comparing average annual heatwave days by state and territory in 1980–1989 and 2016–2025, sorted by absolute change"></div>
+      </div>
+      <div class="chart-frame"><div class="chart" id="state-heatwave-change-dumbbell" aria-label="Dumbbell chart comparing average annual heatwave days by state and territory in 1980–1989 and 2016–2025, sorted by absolute change"></div></div>
+      <div class="chart-context">
       <p class="chart-note">Purple marks 1980–1989; rust marks 2016–2025. Hover over a point for the state, period, average and change in days. Heatwave days measure time in heatwave conditions, rather than the number of separate events.</p>
       <p class="chart-note">Each period contains ten years, but 2025 ends on 29 August and is not adjusted to a full year. Other Territories has no represented grid cells and is omitted. On smaller screens: NSW = New South Wales; VIC = Victoria; QLD = Queensland; SA = South Australia; WA = Western Australia; TAS = Tasmania; NT = Northern Territory; ACT = Australian Capital Territory.</p>
+      </div>
       <p class="source">Source: CSIRO processed annual grid data; ABS ASGS 2021 state boundaries (CC BY 4.0). <a href="data/csiro_state_frequency_change.csv">Period averages</a> · <a href="data/csiro_state_frequency_change_metadata.json">Aggregation and coverage details</a>.</p>
     </section>
 
     <section class="story-section intensity-ridgeline" aria-labelledby="intensity-ridgeline-heading">
       <p class="eyebrow">07 · The intensity distribution</p>
       <h2 id="intensity-ridgeline-heading">Are intense heatwave days becoming more common?</h2>
+      <div class="section-lead">
       <p class="section-intro">These ridges compare the mix of intensities among heatwave days across Australian land grid cells. Each period is normalised to the same total density, so ridge height shows relative concentration, not the number of heatwave days. EHF describes heat relative to local conditions and is expressed in °C², not air temperature.</p>
-      <p class="takeaway"><strong>What to notice:</strong> The pattern is not a steady rise. The share of positive EHF observations at or above 12 °C² increases from 9.4% in the 1980s to 15.5% in the 2010s, then falls to 8.0% in 2020–2025. This is a change in the intensity mix among heatwave days; these normalised curves alone cannot establish whether intense days occur more often across all days.</p>
-      <div class="chart" id="heatwave-intensity-ridgeline" aria-label="Overlapping relative density curves of positive Excess Heat Factor by decade from the 1980s to 2020–2025"></div>
+      <p class="takeaway"><strong>What to notice:</strong> The share of positive EHF observations at or above 12 °C² rises from 9.4% in the 1980s to 15.5% in the 2010s, then falls to 8.0% in 2020–2025. This compares the intensity mix among heatwave days, not their frequency across all days.</p>
+      </div>
+      <div class="chart-frame"><div class="chart" id="heatwave-intensity-ridgeline" aria-label="Overlapping relative density curves of positive Excess Heat Factor by decade from the 1980s to 2020–2025"></div></div>
+      <div class="chart-context">
       <p class="chart-note">Read from the 1980s at the top to 2020–2025 at the bottom. The symlog axis expands lower EHF values while retaining the full observed tail; equal horizontal distances do not represent equal intensity changes. Heights share a common density scale in original EHF units; areas on this nonlinear display are not probabilities. Hover for period, intensity and density.</p>
       <p class="chart-note">All available positive grid-cell-day observations are pooled within each period, using the existing Australian land mask. Common 0.5 °C² bins and a shared 1 °C² smoothing bandwidth approximate the distribution shape. Years with more heatwave observations contribute more to the pooled curve. The 12 °C² comparison benchmark is the upper edge of the bin containing the 1980s 90th percentile, not an official severe or extreme threshold.</p>
+      </div>
       <p class="chart-note">Incomplete 1979 is excluded. The last period covers six years, 2020–2025; 2025 ends on 29 August. Available dates are used without filling gaps or adjusting to a full year.</p>
       <p class="source">Source: CSIRO daily EHF, processed offline using the existing Natural Earth Australian land mask. <a href="data/csiro_intensity_decade_density.csv">Processed densities</a> · <a href="data/csiro_intensity_decade_density_metadata.json">Processing, coverage and distribution summaries</a>.</p>
     </section>
@@ -110,62 +130,80 @@
     <section class="story-section city-profiles" aria-labelledby="city-profiles-heading">
       <p class="eyebrow">08 · City heatwave profiles</p>
       <h2 id="city-profiles-heading">Different cities experience different kinds of heatwaves</h2>
+      <div class="section-lead">
       <p class="section-intro">Follow each city’s line across four measures to see its heatwave profile. Every vertical axis is independently normalised from the lowest to the highest value among these eight locations. Positions compare cities within a measure; they do not imply that days and EHF have the same units. Axis ticks and tooltips show the original values.</p>
-      <p class="takeaway"><strong>What to notice:</strong> Darwin has the most average annual heatwave days (23.7) and the longest average annual runs (10.8 days), but the lowest mean and maximum EHF among these locations. Adelaide has the highest mean positive EHF (15.1 °C²), while Melbourne has the highest maximum EHF (70.7 °C²). Longer or more frequent heatwaves do not necessarily have higher EHF.</p>
+      <p class="takeaway"><strong>What to notice:</strong> Darwin leads in average annual heatwave days (23.7) and longest runs (10.8 days), but has the lowest mean and maximum EHF among these locations. Adelaide has the highest mean positive EHF (15.1 °C²); Melbourne has the highest maximum EHF (70.7 °C²).</p>
+      </div>
       <p class="chart-note">Hover over a city’s line or point to highlight its complete profile and see all four original values. On narrow screens, scroll the chart horizontally to compare all four axes.</p>
       <div class="profile-scroll" role="region" aria-label="City heatwave profiles; scroll horizontally on small screens" tabindex="0">
-        <div class="chart" id="city-heatwave-parallel-coordinates" aria-label="Parallel coordinates plot of heatwave frequency, longest duration, mean EHF and maximum EHF for eight representative Australian cities"></div>
+        <div class="chart-frame"><div class="chart" id="city-heatwave-parallel-coordinates" aria-label="Parallel coordinates plot of heatwave frequency, longest duration, mean EHF and maximum EHF for eight representative Australian cities"></div></div>
       </div>
+      <div class="chart-context">
       <p class="chart-note">Each city uses the same nearest valid CSIRO land-grid centre as the intensity map, 2.3–6.9 km from its city centre. Annual heatwave days and longest runs are averaged equally across 2020–2025; mean positive EHF is weighted by positive-day counts. Maximum EHF is the highest recorded value in the period. EHF describes heat relative to local conditions, not air temperature.</p>
       <p class="chart-note">The period includes partial 2025 data to 29 August without adjustment to a full year. Runs may be split at annual file boundaries. These eight selected locations are not a national ranking.</p>
+      </div>
       <p class="source">Source: CSIRO heatwave data; GeoNames city coordinates. <a href="data/csiro_city_intensity_2020_2025.csv">Existing city-level data</a>, shared with the intensity map.</p>
     </section>
 
+    <div class="bom-chapter">
     <section class="story-section bom-temperature" aria-labelledby="adelaide-temperature-heading">
       <p class="eyebrow">09 · BOM long-term temperature context</p>
       <h2 id="adelaide-temperature-heading">How has Adelaide’s temperature distribution shifted?</h2>
+      <div class="section-lead">
       <p class="section-intro">BOM ACORN-SAT provides independent, long-term temperature context for the CSIRO heatwave analysis. These violins compare Adelaide’s daily maximum temperatures across five historical periods. Wider parts show temperatures that were more common within that period; the dark mark shows the median, with half of recorded days above and half below it.</p>
       <p class="takeaway"><strong>What to notice:</strong> The median is 20.7 °C in 1910–1929, compared with 21.3 °C in 2000–2019 and 21.4 °C in 2020–2024. The upper tail does not rise steadily: 5.8% of recorded days reach at least 35 °C in 2000–2019, compared with 3.9% in 1910–1929 and 4.2% in 2020–2024. The final period covers only five years.</p>
+      </div>
       <p class="chart-note">All violins share the same temperature scale and smoothing. Width represents relative density, so a wider violin does not mean more observations. Compare the upper tips to explore the hotter tail. Hover for period, temperature, median and observation count. Scroll horizontally on narrow screens to view every period.</p>
       <div class="temperature-scroll" role="region" aria-label="Adelaide temperature violins; scroll horizontally on small screens" tabindex="0">
-        <div class="chart" id="adelaide-temperature-violin" aria-label="Violin distributions of Adelaide daily maximum temperatures for 1910–1929, 1940–1959, 1970–1989, 2000–2019 and 2020–2024"></div>
+        <div class="chart-frame"><div class="chart" id="adelaide-temperature-violin" aria-label="Violin distributions of Adelaide daily maximum temperatures for 1910–1929, 1940–1959, 1970–1989, 2000–2019 and 2020–2024"></div></div>
       </div>
+      <div class="chart-context">
       <p class="chart-note">The source covers 2 January 1910–31 December 2024. Valid daily observations by period are 7,256; 7,303; 7,304; 7,301; and 1,820. Missing days are 49; 2; 1; 4; and 7 respectively. Coverage exceeds 99% in every period; gaps are omitted without filling them.</p>
       <p class="chart-note">All seasons are included. Curves are smoothed estimates and may extend slightly beyond observed temperatures. Daily maximum temperature in °C is a different measure from CSIRO’s EHF intensity in °C²; a hot day alone does not identify an EHF heatwave.</p>
+      </div>
       <p class="source">Source: BOM ACORN-SAT · Adelaide (West Terrace / Ngayirdapira), station 023000 · supplied <code>tmax.023000.daily.csv</code>. <a href="data/bom_adelaide_tmax_periods.csv">Processed daily temperatures</a> · <a href="data/bom_adelaide_tmax_periods_metadata.json">Coverage, missing dates and summaries</a>.</p>
     </section>
 
     <section class="story-section bom-nights" aria-labelledby="adelaide-nights-heading">
       <p class="eyebrow">10 · BOM overnight temperature context</p>
       <h2 id="adelaide-nights-heading">Are Adelaide’s nights getting warmer?</h2>
+      <div class="section-lead">
       <p class="section-intro">The daytime violins show the range of maximum temperatures. This horizon chart turns to overnight conditions: each year’s average daily minimum temperature is compared with a fixed early baseline of 11.64 °C, calculated from complete years within 1910–1939. These are temperature anomalies in °C, not EHF values.</p>
       <p class="takeaway"><strong>What to notice:</strong> The 21 complete years in 2000–2024 average 12.51 °C, which is 0.87 °C above the early baseline. This supports warmer average overnight conditions in that recent period, while individual years still vary.</p>
+      </div>
       <div class="horizon-scroll" role="region" aria-label="Adelaide overnight temperature horizon chart; scroll horizontally on small screens" tabindex="0">
-        <div class="chart" id="adelaide-warm-nights-horizon" aria-label="Folded horizon chart of annual Adelaide minimum-temperature anomalies relative to complete years within 1910–1939"></div>
+        <div class="chart-frame"><div class="chart" id="adelaide-warm-nights-horizon" aria-label="Folded horizon chart of annual Adelaide minimum-temperature anomalies relative to complete years within 1910–1939"></div></div>
       </div>
       <p class="chart-note">Rust means warmer than the baseline; blue means cooler. Each shade adds another 0.5 °C band, folded back onto the same baseline. Darker shades indicate larger departures; height within the darkest band shows the remainder. Blank years have insufficient coverage. Hover for original annual temperatures and anomalies.</p>
       <p class="source">Source: BOM ACORN-SAT · Adelaide (West Terrace / Ngayirdapira), station 023000 · 1910–2024 file, 84 complete years retained. Baseline: 20 complete years within 1910–1939. <a href="data/bom_adelaide_tmin_anomaly.csv">Annual temperatures and anomalies</a> · <a href="data/bom_adelaide_tmin_anomaly_metadata.json">Baseline, exclusions and processing details</a>.</p>
     </section>
 
+    </div>
+
     <section class="methodology" aria-labelledby="methodology-heading">
       <p class="eyebrow">11 · Understanding the data</p>
       <h2 id="methodology-heading">Methodology and limitations</h2>
       <div class="methodology-columns">
-      <p><strong>Reading the measures.</strong> Heatwave days count days with a positive Excess Heat Factor (EHF); duration counts consecutive positive-EHF days. EHF is an intensity index expressed in °C², not air temperature. The intensity map shows the maximum EHF and the mean across positive-EHF days during 2020–2025.</p>
-      <p><strong>Spatial averages.</strong> The national line shows average annual heatwave days per grid cell, not a total across the country. For state duration, each grid cell’s annual longest run is averaged within its state, then across years. Cells and years receive equal weight. State averages hide local differences; grey areas have no represented grid cells.</p>
-      <p><strong>Duration distribution.</strong> The boxplot uses the same equal-cell annual state means as the duration map, but keeps each year separate for 1980–2025. Each state contributes 46 annual values, with equal weight per year. Boxes show the middle 50% of those values, not variation between heatwave events. Unmatched coastal cells are excluded using the same full ABS boundary join; the ACT is represented by 17 grid centres.</p>
-      <p><strong>Frequency comparison.</strong> Annual counts of days with positive EHF are averaged equally across grid cells in each state, then equally across the ten years in each comparison period. The full ABS boundary join excludes unmatched coastal cells; this is not area- or population-weighted. Change is the 2016–2025 average minus the 1980–1989 average, expressed in days. Sorting uses its absolute magnitude. Partial 2025 counts are included without annualisation.</p>
-      <p><strong>Intensity ridges.</strong> Finite positive daily EHF values are pooled across land grid cells and available dates within each period, with equal weight per grid-cell-day and no area or population weighting. Shared 0.5 °C² histogram bins are smoothed with a Gaussian bandwidth of 1 °C², reflected at zero. Each curve is normalised to unit area in original EHF units. This compares conditional intensity distributions, not the incidence of intense days across all days. Counts reconcile with the existing annual national summaries.</p>
-      <p><strong>City profiles.</strong> Each metric is independently min–max normalised across the eight selected locations: (value − minimum) / (maximum − minimum). A position of zero indicates the lowest observed city value, not zero days or EHF. If all cities share a value, the metric is placed at the midpoint. Original values and aggregation are retained from the existing city intensity dataset.</p>
-      <p><strong>BOM temperature distributions.</strong> Every valid daily maximum temperature in the five selected periods is retained, including repeated values. No sampling, binning or seasonal adjustment is applied. Vega-Lite estimates each probability density using a shared 1 °C Gaussian bandwidth on a 0–55 °C range, then mirrors it into a violin. Medians and hot-day shares use original observations, not smoothed curves. Periods have different lengths and some missing dates; the five-year 2020–2024 sample should be interpreted with that shorter coverage in mind.</p>
-      <p><strong>BOM overnight anomalies.</strong> The source spans 2 January 1910–31 December 2024. Only years with 100% of expected daily values, including leap days, are used: 84 years qualify and 31 are excluded, without filling gaps. Most excluded years lack 1–11 values; 1910 lacks 32. The annual mean is the arithmetic mean of daily minimum temperatures. The fixed 1910–1939 baseline is the equal-year average of its 20 complete annual means (11.638361 °C); annual anomaly is annual mean minus baseline. The complete-year 2000–2024 comparison uses 21 annual means and is a period comparison, not a fitted trend.</p>
-      <p><strong>Reading horizon bands.</strong> Observed anomalies range from −1.050690 to +1.566844 °C. Four 0.5 °C bands cover that range in each direction. For sign s and band k (0–3), the displayed height is clamp(s × anomaly − k × 0.5, 0, 0.5). Light lower bands are overlaid with darker higher bands, folding every band to the same zero baseline. Signed band heights sum to the original anomaly. Annual segments stop at year boundaries and do not bridge excluded years; colours encode sign. The vertical strip measures folded band height, rather than the full anomaly.</p>
-      <p><strong>Monthly activity.</strong> Daily CSIRO EHF is processed offline using the existing Australian land mask. For each month, positive-EHF days are counted per cell, then averaged equally across cells with finite EHF on every available date. This is not an area- or population-weighted measure. Monthly counts use available dates without filling gaps or adjusting to a full month. 1980–2024 have complete daily coverage; 2025 ends on 29 August. The seasonal takeaway uses complete years, and the annual average rises from 12.3 days per cell in the 1980s to 17.3 in the 2010s. <a href="data/csiro_monthly_heatwave_activity_metadata.json">Monthly coverage and aggregation details</a>.</p>
-      <p><strong>Coverage and boundaries.</strong> The maps cover 2020–2025, not the full 2020s. Results use available dates without annualisation (adjustment to a full year); 2025 may be incomplete. Heatwaves crossing yearly file boundaries may be split, shortening the recorded duration. Unmatched coastal cells are excluded from state summaries.</p>
-      <p><strong>Selected locations.</strong> Each intensity location uses the nearest valid CSIRO land-grid centre, 2.3–6.9 km from the city centre. These locations do not identify the most intense grid cell in Australia. The maps compare places in a recent period; they do not show changes in duration or intensity over time.</p>
+      <section class="methodology-item"><h3>Reading the measures</h3><p>Heatwave days count days with a positive Excess Heat Factor (EHF); duration counts consecutive positive-EHF days. EHF is an intensity index expressed in °C², not air temperature. The intensity map shows the maximum EHF and the mean across positive-EHF days during 2020–2025.</p></section>
+      <section class="methodology-item"><h3>Spatial averages</h3><p>The national line shows average annual heatwave days per grid cell, not a total across the country. For state duration, each grid cell’s annual longest run is averaged within its state, then across years. Cells and years receive equal weight. State averages hide local differences; grey areas have no represented grid cells.</p></section>
+      <section class="methodology-item"><h3>Duration distribution</h3><p>The boxplot uses the same equal-cell annual state means as the duration map, but keeps each year separate for 1980–2025. Each state contributes 46 annual values, with equal weight per year. Boxes show the middle 50% of those values, not variation between heatwave events. Unmatched coastal cells are excluded using the same full ABS boundary join; the ACT is represented by 17 grid centres.</p></section>
+      <section class="methodology-item"><h3>Frequency comparison</h3><p>Annual counts of days with positive EHF are averaged equally across grid cells in each state, then equally across the ten years in each comparison period. The full ABS boundary join excludes unmatched coastal cells; this is not area- or population-weighted. Change is the 2016–2025 average minus the 1980–1989 average, expressed in days. Sorting uses its absolute magnitude. Partial 2025 counts are included without annualisation.</p></section>
+      <section class="methodology-item"><h3>Intensity ridges</h3><p>Finite positive daily EHF values are pooled across land grid cells and available dates within each period, with equal weight per grid-cell-day and no area or population weighting. Shared 0.5 °C² histogram bins are smoothed with a Gaussian bandwidth of 1 °C², reflected at zero. Each curve is normalised to unit area in original EHF units. This compares conditional intensity distributions, not the incidence of intense days across all days. Counts reconcile with the existing annual national summaries.</p></section>
+      <section class="methodology-item"><h3>City profiles</h3><p>Each metric is independently min–max normalised across the eight selected locations: (value − minimum) / (maximum − minimum). A position of zero indicates the lowest observed city value, not zero days or EHF. If all cities share a value, the metric is placed at the midpoint. Original values and aggregation are retained from the existing city intensity dataset.</p></section>
+      <section class="methodology-item"><h3>BOM temperature distributions</h3><p>Every valid daily maximum temperature in the five selected periods is retained, including repeated values. No sampling, binning or seasonal adjustment is applied. Vega-Lite estimates each probability density using a shared 1 °C Gaussian bandwidth on a 0–55 °C range, then mirrors it into a violin. Medians and hot-day shares use original observations, not smoothed curves. Periods have different lengths and some missing dates; the five-year 2020–2024 sample should be interpreted with that shorter coverage in mind.</p></section>
+      <section class="methodology-item"><h3>BOM overnight anomalies</h3><p>The source spans 2 January 1910–31 December 2024. Only years with 100% of expected daily values, including leap days, are used: 84 years qualify and 31 are excluded, without filling gaps. Most excluded years lack 1–11 values; 1910 lacks 32. The annual mean is the arithmetic mean of daily minimum temperatures. The fixed 1910–1939 baseline is the equal-year average of its 20 complete annual means (11.638361 °C); annual anomaly is annual mean minus baseline. The complete-year 2000–2024 comparison uses 21 annual means and is a period comparison, not a fitted trend.</p></section>
+      <section class="methodology-item"><h3>Reading horizon bands</h3><p>Observed anomalies range from −1.050690 to +1.566844 °C. Four 0.5 °C bands cover that range in each direction. For sign s and band k (0–3), the displayed height is clamp(s × anomaly − k × 0.5, 0, 0.5). Light lower bands are overlaid with darker higher bands, folding every band to the same zero baseline. Signed band heights sum to the original anomaly. Annual segments stop at year boundaries and do not bridge excluded years; colours encode sign. The vertical strip measures folded band height, rather than the full anomaly.</p></section>
+      <section class="methodology-item"><h3>Monthly activity</h3><p>Daily CSIRO EHF is processed offline using the existing Australian land mask. For each month, positive-EHF days are counted per cell, then averaged equally across cells with finite EHF on every available date. This is not an area- or population-weighted measure. Monthly counts use available dates without filling gaps or adjusting to a full month. 1980–2024 have complete daily coverage; 2025 ends on 29 August. The seasonal takeaway uses complete years, and the annual average rises from 12.3 days per cell in the 1980s to 17.3 in the 2010s. <a href="data/csiro_monthly_heatwave_activity_metadata.json">Monthly coverage and aggregation details</a>.</p></section>
+      <section class="methodology-item"><h3>Coverage and boundaries</h3><p>The maps cover 2020–2025, not the full 2020s. Results use available dates without annualisation (adjustment to a full year); 2025 may be incomplete. Heatwaves crossing yearly file boundaries may be split, shortening the recorded duration. Unmatched coastal cells are excluded from state summaries.</p></section>
+      <section class="methodology-item"><h3>Selected locations</h3><p>Each intensity location uses the nearest valid CSIRO land-grid centre, 2.3–6.9 km from the city centre. These locations do not identify the most intense grid cell in Australia. The maps compare places in a recent period; they do not show changes in duration or intensity over time.</p></section>
       </div>
       <p class="source">Further detail: <a href="data/csiro_state_duration_metadata.json">state aggregation metadata</a>. Prepared for FIT3179 Data Visualisation 2.</p>
     </section>
+    <footer class="page-footer">
+      <p class="footer-title">Australian heatwaves <span>· FIT3179 Data Visualisation 2</span></p>
+      <p>Heatwave measures: <strong>CSIRO</strong> · Adelaide temperatures: <strong>BOM ACORN-SAT</strong> · Geography: <strong>ABS ASGS 2021, Natural Earth &amp; GeoNames</strong></p>
+      <p class="footer-date">Presentation updated <time datetime="2026-10-20">20 October 2026</time>. Dataset coverage and limitations are documented above.</p>
+    </footer>
     <noscript>Enable JavaScript to view the chart.</noscript>
   </main>
   <script>
