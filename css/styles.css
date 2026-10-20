@@ -81,3 +81,36 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .story-section { margin-top: 32px; padding-top: 24px; }
   .takeaway { padding: 10px 12px; }
 }
+
+/* Shared comparison rows keep headings, maps and sources aligned. */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 32px;
+  margin-top: 28px;
+}
+.comparison-panel {
+  min-width: 0;
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+}
+.comparison-panel h3 {
+  margin: 0 0 16px;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.comparison-panel .chart { min-height: 0; align-self: start; }
+.comparison-panel .source { overflow-wrap: anywhere; }
+.methodology-columns { columns: 2; column-gap: 32px; }
+.methodology-columns p { max-width: 65ch; break-inside: avoid; }
+.methodology > .eyebrow { font-size: 0.75rem; }
+
+@media (max-width: 899px) {
+  .comparison-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .comparison-panel { display: block; grid-row: auto; }
+  .comparison-panel + .comparison-panel { border-top: 1px solid var(--rule); padding-top: 28px; }
+  .methodology-columns { columns: 1; }
+}
