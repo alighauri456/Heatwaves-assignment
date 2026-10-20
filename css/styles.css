@@ -129,3 +129,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .temperature-scroll { overflow-x: auto; margin-top: 20px; padding-bottom: 8px; }
 .temperature-scroll .chart { min-width: 900px; }
 .temperature-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.bom-nights .chart-note { max-width: 80ch; }
+.horizon-scroll { overflow-x: auto; margin-top: 20px; padding-bottom: 8px; }
+.horizon-scroll .chart { min-width: 620px; min-height: 0; }
+.horizon-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

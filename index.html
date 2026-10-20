@@ -135,8 +135,20 @@
       <p class="source">Source: BOM ACORN-SAT · Adelaide (West Terrace / Ngayirdapira), station 023000 · supplied <code>tmax.023000.daily.csv</code>. <a href="data/bom_adelaide_tmax_periods.csv">Processed daily temperatures</a> · <a href="data/bom_adelaide_tmax_periods_metadata.json">Coverage, missing dates and summaries</a>.</p>
     </section>
 
+    <section class="story-section bom-nights" aria-labelledby="adelaide-nights-heading">
+      <p class="eyebrow">10 · BOM overnight temperature context</p>
+      <h2 id="adelaide-nights-heading">Are Adelaide’s nights getting warmer?</h2>
+      <p class="section-intro">The daytime violins show the range of maximum temperatures. This horizon chart turns to overnight conditions: each year’s average daily minimum temperature is compared with a fixed early baseline of 11.64 °C, calculated from complete years within 1910–1939. These are temperature anomalies in °C, not EHF values.</p>
+      <p class="takeaway"><strong>What to notice:</strong> The 21 complete years in 2000–2024 average 12.51 °C, which is 0.87 °C above the early baseline. This supports warmer average overnight conditions in that recent period, while individual years still vary.</p>
+      <div class="horizon-scroll" role="region" aria-label="Adelaide overnight temperature horizon chart; scroll horizontally on small screens" tabindex="0">
+        <div class="chart" id="adelaide-warm-nights-horizon" aria-label="Folded horizon chart of annual Adelaide minimum-temperature anomalies relative to complete years within 1910–1939"></div>
+      </div>
+      <p class="chart-note">Rust means warmer than the baseline; blue means cooler. Each shade adds another 0.5 °C band, folded back onto the same baseline. Darker shades indicate larger departures; height within the darkest band shows the remainder. Blank years have insufficient coverage. Hover for original annual temperatures and anomalies.</p>
+      <p class="source">Source: BOM ACORN-SAT · Adelaide (West Terrace / Ngayirdapira), station 023000 · 1910–2024 file, 84 complete years retained. Baseline: 20 complete years within 1910–1939. <a href="data/bom_adelaide_tmin_anomaly.csv">Annual temperatures and anomalies</a> · <a href="data/bom_adelaide_tmin_anomaly_metadata.json">Baseline, exclusions and processing details</a>.</p>
+    </section>
+
     <section class="methodology" aria-labelledby="methodology-heading">
-      <p class="eyebrow">10 · Understanding the data</p>
+      <p class="eyebrow">11 · Understanding the data</p>
       <h2 id="methodology-heading">Methodology and limitations</h2>
       <div class="methodology-columns">
       <p><strong>Reading the measures.</strong> Heatwave days count days with a positive Excess Heat Factor (EHF); duration counts consecutive positive-EHF days. EHF is an intensity index expressed in °C², not air temperature. The intensity map shows the maximum EHF and the mean across positive-EHF days during 2020–2025.</p>
@@ -146,6 +158,8 @@
       <p><strong>Intensity ridges.</strong> Finite positive daily EHF values are pooled across land grid cells and available dates within each period, with equal weight per grid-cell-day and no area or population weighting. Shared 0.5 °C² histogram bins are smoothed with a Gaussian bandwidth of 1 °C², reflected at zero. Each curve is normalised to unit area in original EHF units. This compares conditional intensity distributions, not the incidence of intense days across all days. Counts reconcile with the existing annual national summaries.</p>
       <p><strong>City profiles.</strong> Each metric is independently min–max normalised across the eight selected locations: (value − minimum) / (maximum − minimum). A position of zero indicates the lowest observed city value, not zero days or EHF. If all cities share a value, the metric is placed at the midpoint. Original values and aggregation are retained from the existing city intensity dataset.</p>
       <p><strong>BOM temperature distributions.</strong> Every valid daily maximum temperature in the five selected periods is retained, including repeated values. No sampling, binning or seasonal adjustment is applied. Vega-Lite estimates each probability density using a shared 1 °C Gaussian bandwidth on a 0–55 °C range, then mirrors it into a violin. Medians and hot-day shares use original observations, not smoothed curves. Periods have different lengths and some missing dates; the five-year 2020–2024 sample should be interpreted with that shorter coverage in mind.</p>
+      <p><strong>BOM overnight anomalies.</strong> The source spans 2 January 1910–31 December 2024. Only years with 100% of expected daily values, including leap days, are used: 84 years qualify and 31 are excluded, without filling gaps. Most excluded years lack 1–11 values; 1910 lacks 32. The annual mean is the arithmetic mean of daily minimum temperatures. The fixed 1910–1939 baseline is the equal-year average of its 20 complete annual means (11.638361 °C); annual anomaly is annual mean minus baseline. The complete-year 2000–2024 comparison uses 21 annual means and is a period comparison, not a fitted trend.</p>
+      <p><strong>Reading horizon bands.</strong> Observed anomalies range from −1.050690 to +1.566844 °C. Four 0.5 °C bands cover that range in each direction. For sign s and band k (0–3), the displayed height is clamp(s × anomaly − k × 0.5, 0, 0.5). Light lower bands are overlaid with darker higher bands, folding every band to the same zero baseline. Signed band heights sum to the original anomaly. Annual segments stop at year boundaries and do not bridge excluded years; colours encode sign. The vertical strip measures folded band height, rather than the full anomaly.</p>
       <p><strong>Monthly activity.</strong> Daily CSIRO EHF is processed offline using the existing Australian land mask. For each month, positive-EHF days are counted per cell, then averaged equally across cells with finite EHF on every available date. This is not an area- or population-weighted measure. Monthly counts use available dates without filling gaps or adjusting to a full month. 1980–2024 have complete daily coverage; 2025 ends on 29 August. The seasonal takeaway uses complete years, and the annual average rises from 12.3 days per cell in the 1980s to 17.3 in the 2010s. <a href="data/csiro_monthly_heatwave_activity_metadata.json">Monthly coverage and aggregation details</a>.</p>
       <p><strong>Coverage and boundaries.</strong> The maps cover 2020–2025, not the full 2020s. Results use available dates without annualisation (adjustment to a full year); 2025 may be incomplete. Heatwaves crossing yearly file boundaries may be split, shortening the recorded duration. Unmatched coastal cells are excluded from state summaries.</p>
       <p><strong>Selected locations.</strong> Each intensity location uses the nearest valid CSIRO land-grid centre, 2.3–6.9 km from the city centre. These locations do not identify the most intense grid cell in Australia. The maps compare places in a recent period; they do not show changes in duration or intensity over time.</p>
@@ -246,6 +260,14 @@
     }).catch(error => {
       document.getElementById('adelaide-temperature-violin').textContent = 'The Adelaide temperature distributions could not be loaded.';
       console.error('Unable to load the BOM Adelaide violins:', error);
+    });
+    vegaEmbed('#adelaide-warm-nights-horizon', 'charts/adelaide_warm_nights_horizon.json', {
+      actions: false,
+      renderer: 'svg',
+      loader: { baseURL: new URL('./', window.location.href).href }
+    }).catch(error => {
+      document.getElementById('adelaide-warm-nights-horizon').textContent = 'The Adelaide overnight temperature chart could not be loaded.';
+      console.error('Unable to load the BOM Adelaide horizon chart:', error);
     });
   </script>
 </body>

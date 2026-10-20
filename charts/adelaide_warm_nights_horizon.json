@@ -1,0 +1,871 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Genuine folded horizon chart: 0.5 °C signed anomaly bands overlaid on a shared baseline. Each annual segment has two x endpoints and is grouped by year, preserving gaps for excluded incomplete years. Colour identifies band offset and sign; height is the remainder. Sum of signed band heights reconstructs each anomaly.",
+  "title": {
+    "text": "Are Adelaide’s nights getting warmer?",
+    "subtitle": "Annual minimum-temperature anomalies relative to the 1910–1939 baseline",
+    "fontSize": {
+      "expr": "width < 500 ? 13 : 18"
+    },
+    "subtitleFontSize": {
+      "expr": "width < 500 ? 9 : 12"
+    },
+    "anchor": "start",
+    "offset": 18
+  },
+  "data": {
+    "url": "data/bom_adelaide_tmin_anomaly.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "number",
+        "annual_mean_tmin": "number",
+        "baseline_tmin": "number",
+        "anomaly": "number",
+        "observation_count": "number"
+      }
+    }
+  },
+  "width": "container",
+  "height": 240,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "scale": {
+        "domain": [
+          1909.5,
+          2024.5
+        ],
+        "nice": false
+      },
+      "axis": {
+        "values": [
+          1910,
+          1930,
+          1950,
+          1970,
+          1990,
+          2010,
+          2024
+        ],
+        "format": "d",
+        "labelOverlap": true,
+        "grid": false
+      }
+    },
+    "y": {
+      "field": "band_height",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "domain": [
+          0,
+          0.5
+        ],
+        "nice": false
+      },
+      "axis": {
+        "values": [
+          0,
+          0.5
+        ],
+        "labelExpr": "datum.value === 0 ? 'Baseline' : '0.5 °C fold'",
+        "grid": false,
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "calculate": "clamp(1 * datum.anomaly - 0 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"0 to +0.5\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(1 * datum.anomaly - 1 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"+0.5 to +1.0\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(1 * datum.anomaly - 2 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"+1.0 to +1.5\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(1 * datum.anomaly - 3 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"+1.5 to +2.0\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(-1 * datum.anomaly - 0 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"0 to −0.5\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(-1 * datum.anomaly - 1 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"−0.5 to −1.0\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(-1 * datum.anomaly - 2 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"−1.0 to −1.5\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "clamp(-1 * datum.anomaly - 3 * 0.5, 0, 0.5)",
+          "as": "band_height"
+        },
+        {
+          "calculate": "\"−1.5 to −2.0\"",
+          "as": "band_label"
+        },
+        {
+          "calculate": "[datum.year - 0.5, datum.year + 0.5]",
+          "as": "year_edges"
+        },
+        {
+          "flatten": [
+            "year_edges"
+          ],
+          "as": [
+            "year_position"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "orient": "vertical",
+        "interpolate": "linear",
+        "clip": true
+      },
+      "encoding": {
+        "x": {
+          "field": "year_position",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "band_height",
+          "type": "quantitative"
+        },
+        "y2": {
+          "datum": 0
+        },
+        "detail": {
+          "field": "year",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "band_label",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "0 to +0.5",
+              "+0.5 to +1.0",
+              "+1.0 to +1.5",
+              "+1.5 to +2.0",
+              "0 to −0.5",
+              "−0.5 to −1.0",
+              "−1.0 to −1.5",
+              "−1.5 to −2.0"
+            ],
+            "range": [
+              "#edd4c8",
+              "#d7a086",
+              "#b96c4a",
+              "#8d3a23",
+              "#d4e2eb",
+              "#9bbbd1",
+              "#628da9",
+              "#315f7b"
+            ]
+          },
+          "legend": {
+            "title": "Temperature anomaly bands (°C)",
+            "orient": "bottom",
+            "columns": 4,
+            "labelFontSize": 10,
+            "symbolType": "square",
+            "symbolSize": 110,
+            "labelLimit": 120,
+            "rowPadding": 6
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "0",
+          "as": "zero"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#6b7280",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "datum": 1909.5,
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 2024.5
+        },
+        "y": {
+          "field": "zero",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "datum.year - 0.5",
+          "as": "year_start"
+        },
+        {
+          "calculate": "datum.year + 0.5",
+          "as": "year_end"
+        },
+        {
+          "calculate": "0",
+          "as": "zero"
+        },
+        {
+          "calculate": "0.5",
+          "as": "top"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fill": "transparent",
+        "cursor": "crosshair"
+      },
+      "encoding": {
+        "x": {
+          "field": "year_start",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "year_end"
+        },
+        "y": {
+          "field": "top",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "zero"
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
+          },
+          {
+            "field": "annual_mean_tmin",
+            "type": "quantitative",
+            "title": "Annual mean minimum temperature (°C)",
+            "format": ".2f"
+          },
+          {
+            "field": "baseline_tmin",
+            "type": "quantitative",
+            "title": "1910–1939 baseline (°C)",
+            "format": ".2f"
+          },
+          {
+            "field": "anomaly",
+            "type": "quantitative",
+            "title": "Temperature anomaly (°C)",
+            "format": "+.2f"
+          },
+          {
+            "field": "observation_count",
+            "type": "quantitative",
+            "title": "Valid daily observations",
+            "format": "d"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "font": "Arial",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelColor": "#4b5563",
+      "titleColor": "#263238",
+      "titleFontWeight": "normal"
+    },
+    "legend": {
+      "labelColor": "#4b5563",
+      "titleColor": "#263238"
+    },
+    "title": {
+      "color": "#263238",
+      "subtitleColor": "#4b5563"
+    }
+  }
+}

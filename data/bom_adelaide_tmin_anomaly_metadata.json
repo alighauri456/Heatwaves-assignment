@@ -1,0 +1,1269 @@
+{
+  "source": "BOM ACORN-SAT, supplied raw/BOM/tmin.023000.daily.csv",
+  "station": {
+    "number": "023000",
+    "name": "ADELAIDE (WEST TERRACE / NGAYIRDAPIRA)"
+  },
+  "source_sha256": "681202cc2d25c0b57c641063288b9a989207706a466389d1ecdd5cb1f8244b2e",
+  "source_coverage": [
+    "1910-01-02",
+    "2024-12-31"
+  ],
+  "coverage_threshold": "100% of expected calendar days, including leap day; missing and absent dates both disqualify a year.",
+  "included_years": [
+    1911,
+    1915,
+    1916,
+    1917,
+    1918,
+    1919,
+    1921,
+    1922,
+    1923,
+    1925,
+    1926,
+    1928,
+    1929,
+    1930,
+    1931,
+    1932,
+    1934,
+    1935,
+    1936,
+    1937,
+    1940,
+    1941,
+    1943,
+    1948,
+    1949,
+    1950,
+    1951,
+    1952,
+    1953,
+    1954,
+    1955,
+    1956,
+    1957,
+    1958,
+    1959,
+    1961,
+    1962,
+    1963,
+    1974,
+    1975,
+    1976,
+    1977,
+    1978,
+    1979,
+    1980,
+    1981,
+    1982,
+    1983,
+    1984,
+    1985,
+    1986,
+    1987,
+    1988,
+    1989,
+    1990,
+    1991,
+    1992,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2009,
+    2011,
+    2012,
+    2013,
+    2014,
+    2016,
+    2017,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "excluded_years": [
+    1910,
+    1912,
+    1913,
+    1914,
+    1920,
+    1924,
+    1927,
+    1933,
+    1938,
+    1939,
+    1942,
+    1944,
+    1945,
+    1946,
+    1947,
+    1960,
+    1964,
+    1965,
+    1966,
+    1967,
+    1968,
+    1969,
+    1970,
+    1971,
+    1972,
+    1973,
+    1993,
+    2008,
+    2010,
+    2015,
+    2018
+  ],
+  "baseline_period": "1910–1939",
+  "baseline_years": [
+    1911,
+    1915,
+    1916,
+    1917,
+    1918,
+    1919,
+    1921,
+    1922,
+    1923,
+    1925,
+    1926,
+    1928,
+    1929,
+    1930,
+    1931,
+    1932,
+    1934,
+    1935,
+    1936,
+    1937
+  ],
+  "baseline_tmin": 11.638361067445167,
+  "baseline_method": "Equal-year mean of the 20 complete-year daily Tmin means in the fixed early reference window. Not a claim of 30 complete years.",
+  "annual_method": "Arithmetic mean of daily minimum temperature in complete calendar years only; no imputation.",
+  "unit": "°C temperature anomaly, not EHF",
+  "anomaly_range": [
+    -1.0506898345684554,
+    1.566844412006887
+  ],
+  "band_size": 0.5,
+  "band_count": 4,
+  "horizon_method": "For each sign s and band k: clamp(s * anomaly - k * band_size, 0, band_size). Overlay lighter low bands first, then darker higher bands on a common zero baseline. Annual horizontal segments do not bridge excluded years. Sum of signed folded band heights reconstructs the original anomaly.",
+  "precision": "Nine decimals in CSV; derived from unrounded daily/annual values.",
+  "recent_period": "2000–2024",
+  "recent_years": [
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2009,
+    2011,
+    2012,
+    2013,
+    2014,
+    2016,
+    2017,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "recent_mean_tmin": 12.506080152848623,
+  "recent_minus_baseline": 0.867719085403456,
+  "caveats": [
+    "31 incomplete years excluded; gaps remain visible.",
+    "Baseline uses 20 complete years within 1910–1939; the 2000–2024 comparison uses 21 complete years.",
+    "No fitted temporal trend or attribution is inferred from the period comparison.",
+    "Minimum daily temperature provides overnight-temperature context, not an EHF heatwave classification."
+  ],
+  "coverage": [
+    {
+      "year": 1910,
+      "expected_days": 365,
+      "observation_count": 333,
+      "included": false,
+      "missing_dates": [
+        "1910-01-01",
+        "1910-05-01",
+        "1910-05-02",
+        "1910-05-03",
+        "1910-05-04",
+        "1910-05-05",
+        "1910-05-06",
+        "1910-05-07",
+        "1910-05-08",
+        "1910-05-09",
+        "1910-05-10",
+        "1910-05-11",
+        "1910-05-12",
+        "1910-05-13",
+        "1910-05-14",
+        "1910-05-15",
+        "1910-05-16",
+        "1910-05-17",
+        "1910-05-18",
+        "1910-05-19",
+        "1910-05-20",
+        "1910-05-21",
+        "1910-05-22",
+        "1910-05-23",
+        "1910-05-24",
+        "1910-05-25",
+        "1910-05-26",
+        "1910-05-27",
+        "1910-05-28",
+        "1910-05-29",
+        "1910-05-30",
+        "1910-05-31"
+      ],
+      "absent_dates": [
+        "1910-01-01"
+      ]
+    },
+    {
+      "year": 1911,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1912,
+      "expected_days": 366,
+      "observation_count": 365,
+      "included": false,
+      "missing_dates": [
+        "1912-11-13"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1913,
+      "expected_days": 365,
+      "observation_count": 361,
+      "included": false,
+      "missing_dates": [
+        "1913-01-12",
+        "1913-07-02",
+        "1913-07-03",
+        "1913-07-04"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1914,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1914-12-02"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1915,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1916,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1917,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1918,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1919,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1920,
+      "expected_days": 366,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1920-09-01",
+        "1920-09-02"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1921,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1922,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1923,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1924,
+      "expected_days": 366,
+      "observation_count": 365,
+      "included": false,
+      "missing_dates": [
+        "1924-02-06"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1925,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1926,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1927,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1927-07-15"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1928,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1929,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1930,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1931,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1932,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1933,
+      "expected_days": 365,
+      "observation_count": 363,
+      "included": false,
+      "missing_dates": [
+        "1933-02-25",
+        "1933-02-28"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1934,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1935,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1936,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1937,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1938,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1938-04-01"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1939,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1939-01-31"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1940,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1941,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1942,
+      "expected_days": 365,
+      "observation_count": 363,
+      "included": false,
+      "missing_dates": [
+        "1942-08-24",
+        "1942-09-08"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1943,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1944,
+      "expected_days": 366,
+      "observation_count": 358,
+      "included": false,
+      "missing_dates": [
+        "1944-03-09",
+        "1944-05-02",
+        "1944-07-01",
+        "1944-09-13",
+        "1944-10-10",
+        "1944-12-03",
+        "1944-12-16",
+        "1944-12-28"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1945,
+      "expected_days": 365,
+      "observation_count": 355,
+      "included": false,
+      "missing_dates": [
+        "1945-01-12",
+        "1945-01-16",
+        "1945-01-21",
+        "1945-03-02",
+        "1945-03-04",
+        "1945-04-20",
+        "1945-05-06",
+        "1945-05-15",
+        "1945-06-28",
+        "1945-10-20"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1946,
+      "expected_days": 365,
+      "observation_count": 354,
+      "included": false,
+      "missing_dates": [
+        "1946-03-16",
+        "1946-04-04",
+        "1946-04-09",
+        "1946-09-28",
+        "1946-10-12",
+        "1946-10-21",
+        "1946-11-01",
+        "1946-11-02",
+        "1946-11-03",
+        "1946-11-14",
+        "1946-11-25"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1947,
+      "expected_days": 365,
+      "observation_count": 363,
+      "included": false,
+      "missing_dates": [
+        "1947-01-09",
+        "1947-01-10"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1948,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1949,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1950,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1951,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1952,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1953,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1954,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1955,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1956,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1957,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1958,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1959,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1960,
+      "expected_days": 366,
+      "observation_count": 365,
+      "included": false,
+      "missing_dates": [
+        "1960-05-28"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1961,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1962,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1963,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1964,
+      "expected_days": 366,
+      "observation_count": 357,
+      "included": false,
+      "missing_dates": [
+        "1964-01-17",
+        "1964-04-12",
+        "1964-05-13",
+        "1964-05-27",
+        "1964-05-29",
+        "1964-06-05",
+        "1964-06-25",
+        "1964-06-28",
+        "1964-09-01"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1965,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1965-10-05"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1966,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1966-12-13"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1967,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1967-09-15"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1968,
+      "expected_days": 366,
+      "observation_count": 365,
+      "included": false,
+      "missing_dates": [
+        "1968-01-23"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1969,
+      "expected_days": 365,
+      "observation_count": 361,
+      "included": false,
+      "missing_dates": [
+        "1969-02-10",
+        "1969-02-18",
+        "1969-08-25",
+        "1969-12-02"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1970,
+      "expected_days": 365,
+      "observation_count": 362,
+      "included": false,
+      "missing_dates": [
+        "1970-01-22",
+        "1970-04-05",
+        "1970-04-27"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1971,
+      "expected_days": 365,
+      "observation_count": 363,
+      "included": false,
+      "missing_dates": [
+        "1971-03-22",
+        "1971-07-21"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1972,
+      "expected_days": 366,
+      "observation_count": 362,
+      "included": false,
+      "missing_dates": [
+        "1972-11-22",
+        "1972-11-27",
+        "1972-11-28",
+        "1972-12-14"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1973,
+      "expected_days": 365,
+      "observation_count": 363,
+      "included": false,
+      "missing_dates": [
+        "1973-02-13",
+        "1973-02-16"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1974,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1975,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1976,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1977,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1978,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1979,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1980,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1981,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1982,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1983,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1984,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1985,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1986,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1987,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1988,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1989,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1990,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1991,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1992,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1993,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "1993-10-25"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 1994,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1995,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1996,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1997,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1998,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 1999,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2000,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2001,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2002,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2003,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2004,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2005,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2006,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2007,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2008,
+      "expected_days": 366,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "2008-06-07",
+        "2008-10-07"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 2009,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2010,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "2010-01-08"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 2011,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2012,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2013,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2014,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2015,
+      "expected_days": 365,
+      "observation_count": 364,
+      "included": false,
+      "missing_dates": [
+        "2015-11-21"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 2016,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2017,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2018,
+      "expected_days": 365,
+      "observation_count": 363,
+      "included": false,
+      "missing_dates": [
+        "2018-05-22",
+        "2018-12-19"
+      ],
+      "absent_dates": []
+    },
+    {
+      "year": 2019,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2020,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2021,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2022,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2023,
+      "expected_days": 365,
+      "observation_count": 365,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    },
+    {
+      "year": 2024,
+      "expected_days": 366,
+      "observation_count": 366,
+      "included": true,
+      "missing_dates": [],
+      "absent_dates": []
+    }
+  ]
+}
