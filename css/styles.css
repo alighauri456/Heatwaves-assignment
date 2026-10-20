@@ -108,6 +108,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .methodology-columns p { max-width: 65ch; break-inside: avoid; }
 .methodology > .eyebrow { font-size: 0.75rem; }
 .duration-distribution .chart-note { max-width: 80ch; }
+.frequency-change .chart-note { max-width: 80ch; }
 
 @media (max-width: 899px) {
   .comparison-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }

@@ -1,0 +1,96 @@
+{
+  "periods": {
+    "1980\u20131989": [
+      1980,
+      1981,
+      1982,
+      1983,
+      1984,
+      1985,
+      1986,
+      1987,
+      1988,
+      1989
+    ],
+    "2016\u20132025": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "measure": "Days with positive EHF per year, not separate heatwave events.",
+  "aggregation": "Equal-cell annual state means, then equal-year mean over ten years per period; no area or population weighting.",
+  "boundary_source": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/MapServer/0",
+  "boundary_license": "ABS CC BY 4.0",
+  "grid_cells": 57507,
+  "unmatched_cells": 121,
+  "border_ties": 0,
+  "cells_by_state": {
+    "New South Wales": 6341,
+    "Victoria": 1889,
+    "Queensland": 12534,
+    "South Australia": 7602,
+    "Western Australia": 18805,
+    "Tasmania": 585,
+    "Northern Territory": 9613,
+    "Australian Capital Territory": 17,
+    "Other Territories": 0
+  },
+  "validation": "2020\u20132025 state means reproduce published mean_heatwave_days within 0.000001 days; all inputs checked for duplicate coordinates, finite counts, matching grids and years.",
+  "caveats": [
+    "1979 excluded.",
+    "2025 ends on 29 August; partial-year counts are not annualised.",
+    "Unmatched coastal cells excluded; border ties use lowest ABS state code.",
+    "Other Territories has no represented cells and is omitted, not assigned zero."
+  ],
+  "sort": "Descending absolute magnitude of recent minus historical mean.",
+  "summaries": {
+    "New South Wales": {
+      "1980\u20131989": 10.357309572622615,
+      "2016\u20132025": 20.38497082479104,
+      "change_days": 10.027661252168425
+    },
+    "Queensland": {
+      "1980\u20131989": 14.317360778681984,
+      "2016\u20132025": 24.305895962980692,
+      "change_days": 9.988535184298708
+    },
+    "Tasmania": {
+      "1980\u20131989": 8.398803418803418,
+      "2016\u20132025": 16.152649572649572,
+      "change_days": 7.753846153846155
+    },
+    "Northern Territory": {
+      "1980\u20131989": 15.439134505357327,
+      "2016\u20132025": 22.264402371788204,
+      "change_days": 6.8252678664308775
+    },
+    "Australian Capital Territory": {
+      "1980\u20131989": 10.335294117647058,
+      "2016\u20132025": 17.04705882352941,
+      "change_days": 6.711764705882354
+    },
+    "Western Australia": {
+      "1980\u20131989": 11.516703004520075,
+      "2016\u20132025": 17.59249667641585,
+      "change_days": 6.075793671895774
+    },
+    "South Australia": {
+      "1980\u20131989": 9.648408313601683,
+      "2016\u20132025": 14.823204419889503,
+      "change_days": 5.17479610628782
+    },
+    "Victoria": {
+      "1980\u20131989": 10.38935944944415,
+      "2016\u20132025": 13.571466384330336,
+      "change_days": 3.1821069348861855
+    }
+  }
+}

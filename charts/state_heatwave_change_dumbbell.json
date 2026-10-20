@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Equal-cell annual state means, averaged equally over 1980–1989 and 2016–2025. Sorted by absolute magnitude of change. 2025 is partial and not annualised; Other Territories has no represented grid cells.",
+  "title": {
+    "text": "How much have heatwave days changed since the 1980s?",
+    "fontSize": {"expr": "width < 500 ? 10 : 18"},
+    "subtitle": "1980–1989 compared with 2016–2025",
+    "subtitleFontSize": {"expr": "width < 500 ? 10 : 12"},
+    "anchor": "start", "offset": 18
+  },
+  "data": {
+    "url": "data/csiro_state_frequency_change.csv",
+    "format": {"type": "csv", "parse": {"mean_annual_heatwave_days": "number"}}
+  },
+  "transform": [
+    {"pivot": "period", "value": "mean_annual_heatwave_days", "groupby": ["state"]},
+    {"calculate": "datum['2016–2025'] - datum['1980–1989']", "as": "change_days"},
+    {"calculate": "abs(datum.change_days)", "as": "change_magnitude"},
+    {"fold": ["1980–1989", "2016–2025"], "as": ["period", "mean_annual_heatwave_days"]}
+  ],
+  "width": "container", "height": 340,
+  "autosize": {"type": "fit", "contains": "padding", "resize": true},
+  "encoding": {
+    "y": {
+      "field": "state", "type": "nominal", "title": null,
+      "sort": {"field": "change_magnitude", "op": "max", "order": "descending"},
+      "axis": {"labelExpr": "width < 500 ? {'New South Wales':'NSW','Victoria':'VIC','Queensland':'QLD','South Australia':'SA','Western Australia':'WA','Tasmania':'TAS','Northern Territory':'NT','Australian Capital Territory':'ACT'}[datum.label] : datum.label", "labelLimit": 200, "ticks": false, "domain": false}
+    },
+    "x": {
+      "field": "mean_annual_heatwave_days", "type": "quantitative",
+      "title": "Average annual heatwave days",
+      "scale": {"zero": true},
+      "axis": {"tickCount": 5, "format": ".0f", "titlePadding": 12}
+    }
+  },
+  "layer": [
+    {
+      "transform": [{"filter": "datum.period === '1980–1989'"}],
+      "mark": {"type": "rule", "color": "#c6c1bf", "strokeWidth": 3},
+      "encoding": {
+        "x": {"field": "1980–1989", "type": "quantitative"},
+        "x2": {"field": "2016–2025"},
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State / territory"},
+          {"field": "1980–1989", "type": "quantitative", "title": "1980–1989 (days)", "format": ".2f"},
+          {"field": "2016–2025", "type": "quantitative", "title": "2016–2025 (days)", "format": ".2f"},
+          {"field": "change_days", "type": "quantitative", "title": "Change (days)", "format": "+.2f"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "point", "filled": true, "size": 95, "opacity": 1, "stroke": "white", "strokeWidth": 1},
+      "encoding": {
+        "color": {
+          "field": "period", "type": "nominal", "title": null,
+          "scale": {"domain": ["1980–1989", "2016–2025"], "range": ["#89709e", "#a3482e"]},
+          "legend": {"orient": "top", "direction": "horizontal", "symbolSize": 90}
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State / territory"},
+          {"field": "period", "type": "nominal", "title": "Period"},
+          {"field": "mean_annual_heatwave_days", "type": "quantitative", "title": "Average annual heatwave days", "format": ".2f"},
+          {"field": "change_days", "type": "quantitative", "title": "Change (days, recent minus historical)", "format": "+.2f"},
+          {"field": "change_magnitude", "type": "quantitative", "title": "Absolute change (days)", "format": ".2f"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "font": "Arial", "view": {"stroke": null},
+    "axis": {"labelColor": "#4b5563", "titleColor": "#263238", "gridColor": "#e5e7eb", "labelFontSize": 11, "titleFontWeight": "normal"},
+    "legend": {"labelColor": "#4b5563"},
+    "title": {"color": "#263238", "subtitleColor": "#4b5563"}
+  }
+}
