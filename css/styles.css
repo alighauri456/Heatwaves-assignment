@@ -116,3 +116,5 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .comparison-panel + .comparison-panel { border-top: 1px solid var(--rule); padding-top: 28px; }
   .methodology-columns { columns: 1; }
 }
+
+.intensity-ridgeline .chart-note { max-width: 80ch; }

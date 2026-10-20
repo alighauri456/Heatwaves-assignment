@@ -1,0 +1,53 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Overlapping precomputed densities of positive daily land-grid EHF. All observations aggregated offline into 0.5 °C² bins; shared 1 °C² Gaussian bandwidth. Each period's density integrates to one in original EHF units. Symlog x-axis retains the full tail. Relative density does not measure frequency across all days.",
+  "title": {
+    "text": "Are intense heatwave days becoming more common?",
+    "fontSize": {"expr": "width < 500 ? 10 : 18"},
+    "subtitle": "Distribution of positive Excess Heat Factor values by decade",
+    "subtitleFontSize": {"expr": "width < 500 ? 9 : 12"},
+    "anchor": "start", "offset": 18
+  },
+  "data": {
+    "url": "data/csiro_intensity_decade_density.csv",
+    "format": {"type": "csv", "parse": {"ehf": "number", "density": "number", "bin_count": "number"}}
+  },
+  "width": "container", "height": 410,
+  "autosize": {"type": "fit", "contains": "padding", "resize": true},
+  "transform": [
+    {"calculate": "4 - indexof(['1980s','1990s','2000s','2010s','2020–2025'], datum.period)", "as": "baseline"},
+    {"joinaggregate": [{"op": "max", "field": "density", "as": "peak_density"}]},
+    {"calculate": "datum.baseline + 1.45 * datum.density / datum.peak_density", "as": "ridge_top"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "ehf", "type": "quantitative", "title": "EHF intensity (°C² · symlog scale)",
+      "scale": {"type": "symlog", "constant": 5, "domain": [0, 185], "nice": false},
+      "axis": {"values": [0, 5, 10, 25, 50, 100, 185], "labelOverlap": true, "format": ".0f", "titlePadding": 14}
+    },
+    "y": {
+      "field": "ridge_top", "type": "quantitative", "title": null,
+      "scale": {"domain": [-0.15, 5.6], "nice": false},
+      "axis": {"values": [0, 1, 2, 3, 4], "labelExpr": "['2020–2025','2010s','2000s','1990s','1980s'][datum.value]", "grid": false, "ticks": false, "domain": false, "labelPadding": 10}
+    },
+    "y2": {"field": "baseline"},
+    "detail": {"field": "period"},
+    "color": {
+      "field": "period", "type": "ordinal",
+      "scale": {"domain": ["1980s", "1990s", "2000s", "2010s", "2020–2025"], "range": ["#c7b9d2", "#ae98bf", "#9477aa", "#78568f", "#a3482e"]},
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "period", "type": "nominal", "title": "Period"},
+      {"field": "ehf", "type": "quantitative", "title": "EHF bin centre (°C²)", "format": ".2f"},
+      {"field": "density", "type": "quantitative", "title": "Relative density (per °C²)", "format": ".5f"},
+      {"field": "bin_count", "type": "quantitative", "title": "Positive grid-cell days in 0.5 °C² bin", "format": ",d"}
+    ]
+  },
+  "mark": {"type": "area", "opacity": 0.8, "stroke": "#65506e", "strokeWidth": 1, "interpolate": "linear"},
+  "config": {
+    "font": "Arial", "view": {"stroke": null},
+    "axis": {"labelColor": "#4b5563", "titleColor": "#263238", "gridColor": "#e5e7eb", "titleFontWeight": "normal", "labelFontSize": 11},
+    "title": {"color": "#263238", "subtitleColor": "#4b5563"}
+  }
+}
