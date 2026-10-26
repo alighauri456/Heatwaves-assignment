@@ -34,19 +34,20 @@ p { max-width: 68ch; margin: 0 0 14px; color: var(--muted); }
   text-transform: uppercase;
 }
 
-/* An editorial opening, with coverage aligned beside the main introduction. */
+/* A compact editorial opening with a clear title and supporting context. */
 .page-header {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  column-gap: 48px;
-  padding: 12px 0 4px;
+  column-gap: 40px;
+  padding: 8px 0 0;
 }
-.page-header > .eyebrow { grid-column: 1 / -1; margin-bottom: 20px; }
+.page-header > .eyebrow { grid-column: 1 / -1; margin-bottom: 18px; }
 .page-header h1, .page-header .subtitle { grid-column: 1; }
-.subtitle { max-width: 42ch; margin: 0; font-size: 1.2rem; line-height: 1.5; color: var(--muted); }
-.hero-context { grid-column: 2; grid-row: 2 / span 2; align-self: center; padding-left: 28px; border-left: 2px solid var(--rule); }
-.introduction { margin: 0 0 16px; }
-.reading-guide { margin: 0; font-size: 0.875rem; }
+.page-header h1 { margin: 0 0 16px; font-size: clamp(2.8rem, 4.6vw, 4.25rem); line-height: 1.02; }
+.page-header .subtitle { max-width: 38ch; margin: 0; font-size: 1.2rem; font-weight: 600; line-height: 1.4; color: var(--ink); }
+.page-header .hero-context { grid-column: 2; grid-row: 2 / span 2; align-self: stretch; padding: 4px 0 0 24px; border-left: 1px solid var(--rule); }
+.page-header .introduction { max-width: 42ch; margin: 0 0 14px; line-height: 1.6; }
+.page-header .reading-guide { max-width: 44ch; margin: 0; font-size: 0.8rem; line-height: 1.5; }
 
 .story-section, .methodology { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--rule); }
 .section-lead { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); align-items: start; gap: 32px; margin-bottom: 20px; }
@@ -126,8 +127,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 @media (max-width: 899.98px) {
   main { padding: 28px 24px 20px; }
   .page-header { display: block; padding-top: 4px; }
-  .hero-context { margin-top: 20px; padding-left: 18px; }
-  .subtitle { max-width: 50ch; }
+  .page-header .hero-context { margin-top: 20px; padding: 0 0 0 18px; }
+  .page-header .subtitle { max-width: 42ch; }
   .section-lead { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .comparison-grid { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .comparison-panel { display: block; grid-row: auto; }
@@ -140,7 +141,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   h1 { font-size: clamp(2.7rem, 11vw, 3.4rem); }
   h2 { margin-bottom: 14px; font-size: 1.55rem; }
   .page-header > .eyebrow { margin-bottom: 14px; }
-  .subtitle { font-size: 1.1rem; }
+  .page-header .subtitle { font-size: 1.1rem; }
   .story-section, .methodology { margin-top: 26px; padding-top: 22px; }
   .section-lead { margin-bottom: 16px; }
   .takeaway { padding: 11px 13px; }
