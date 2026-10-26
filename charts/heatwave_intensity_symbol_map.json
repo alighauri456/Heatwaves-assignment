@@ -45,7 +45,7 @@
             },
             "color": {
               "field": "mean_positive_ehf", "type": "quantitative",
-              "scale": { "scheme": "tealblues", "zero": true },
+              "scale": { "range": ["#fce7ad", "#f5bf68", "#e58c35", "#c05a20", "#85351e"], "zero": true },
               "legend": { "title": "Mean positive EHF (°C²)", "orient": "bottom", "direction": "horizontal", "gradientLength": 120, "format": ".1f" }
             },
             "tooltip": [

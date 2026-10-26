@@ -29,7 +29,7 @@
       },
       "field": "properties.mean_longest_run",
       "type": "quantitative",
-      "scale": { "scheme": "purples", "zero": true },
+      "scale": { "range": ["#fbe3d0", "#eeb38d", "#d67c50", "#b64e2c", "#7b2c1e"], "zero": true },
       "legend": {
         "title": "Average annual longest run (days)",
         "orient": "bottom",
